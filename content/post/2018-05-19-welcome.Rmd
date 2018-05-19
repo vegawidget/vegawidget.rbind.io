@@ -1,7 +1,7 @@
 ---
 title: "Welcome to vegawidget"
 author: "Ian Lyttle"
-date: "2018-05-19" 
+date: "2018-05-19T00:00:00Z" 
 categories: ["meta"]
 tags: ["welcome"]
 ---
@@ -10,19 +10,8 @@ tags: ["welcome"]
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-```{r}
-library("altair")
+The effort to bring Vega-Lite to the R community is collaborative; so it appropriate that the **altair** package be hosted by an organization. The altair R package uses the [Altair Python package](https://altair-viz.github.io/index.html) to create [Vega-Lite](https://vega.github.io/vega-lite/) specifications for interactive charts.
 
-vega_data <- import_vega_data()
+This group is named **vegawidget**, after the `altair::vegawidget()` function, which is used to render Vega and Vega-Lite chart specifications into HTML. In the not-so-distant future, this renderer will have its own package, also hosted by this organization.
 
-chart <- 
-  alt$Chart(r_to_py(vega_data$cars()))$
-  encode(
-    x = "Horsepower:Q",
-    y = "Miles_per_Gallon:Q",
-    color = "Origin:N"
-  )$
-  mark_point()
 
-chart
-```

@@ -1,0 +1,86 @@
+---
+title: "Introducing altair, an R interface to the Altair Python Package"
+author: "Ian Lyttle"
+date: "2018-05-19T00:00:01Z" 
+categories: ["meta"]
+tags: ["welcome"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+
+options(altair.embed_options = altair::vega_embed())
+```
+
+
+Introducing **altair**, an R package to work with the Python package [Altair](https://altair-viz.github.io/), which you can use to build and render [Vega-Lite](https://vega.github.io/vega-lite/) chart-specifications: 
+
+https://vegawidget.github.io/altair 
+
+Vega-Lite offers an implementation of an interactive grammar of graphics. The vocabulary and syntax of this grammar is different from that used by [ggplot2](http://ggplot2.tidyverse.org/). However, the fundamental ideas are very much the same: ggplot2 offers aesthetics, geoms, and scales; Vega-Lite offers marks, encondings, and scales. Vega-Lite also offers interactivity "baked into" the rendering.
+
+### Demonstration
+
+Following this [Altair example](https://altair-viz.github.io/user_guide/selections.html), here's a set of scatterplots with linked brushing. You can click-and-drag to select observations in one chart, and they are highlighted in the other:
+
+<details>
+<summary>Code</summary>
+```{r}
+library("altair")
+
+vega_data <- import_vega_data()
+
+brush <- alt$selection_interval()
+
+chart_mpg <-
+  alt$Chart()$
+  mark_point()$
+  encode(
+    x = "Horsepower:Q",
+    y = "Miles_per_Gallon:Q",
+    color = alt$condition(brush, "Origin:N", alt$value("lightgray"))
+  )$
+  properties(selection = brush, width = 250, height = 250) 
+
+chart_disp <- 
+  chart_mpg$encode(
+    x = "Displacement:Q"
+  )
+
+chart <- 
+  (chart_mpg | chart_disp)$
+  properties(
+    data = r_to_py(vega_data$cars()),
+    title = "Linked-Brush Scatterplot"
+  )
+```
+</details>
+
+```{r}
+chart
+```
+
+The interactivity is a fundamental part of Vega-Lite; a interactive chart is rendered and controlled entirely in your broswer.
+
+
+### Resources
+
+You may be initially interested in the [installation instructions](https://vegawidget.github.io/altair/articles/installation.html), as your biggest hassle may be getting your Python environment set up. 
+
+You may also be interested in a [first example](https://vegawidget.github.io/altair/articles/first-example.html), an [interactive example](https://vegawidget.github.io/altair/articles/interactive.html), and the [interactive section of the gallery](https://vegawidget.github.io/altair/articles/example-gallery-08-interactive-charts.html). 
+
+### Acknowledgements
+
+This approach is distinct from efforts to build a native R interface to Vega-Lite, by [Bob Rudis](https://github.com/hrbrmstr/hrbrmstr) and coworkers: the [**vegalite**](https://github.com/hrbrmstr/vegalite) package, which has inspired this effort.
+
+This package rests on foundations provided by [reticulate](https://rstudio.github.io/reticulate/) and [Altair](https://altair-viz.github.io/). [Jake Vanderplas](https://github.com/jakevdp) has been super supportive and patient in answering Altair questions, which is greatly appreciated.  
+
+It is a lot of fun to work with these folks on this project; this package would not exist without their efforts:
+
+ - [Alicia Schep](https://github.com/AliciaSchep) has contributed the chart-concatenation operators, as well as sorted out many of the Python, JavaScript, and package-API issues.
+
+ - [Haley Jeppson](https://github.com/haleyjeppson) has adapted the [Altair Example Gallery](https://altair-viz.github.io/gallery/index.html#) to R; here's the [first page](https://vegawidget.github.io/altair/articles/example-gallery-01-simple.html) of nine.
+
+ - [Heike Hofmann](https://github.com/heike) has been an invaluable advisor, providing incisive feedback, and insight into the fundamentals of interactive graphics.
+
+

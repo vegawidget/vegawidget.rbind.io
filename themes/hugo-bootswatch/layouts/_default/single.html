@@ -3,8 +3,8 @@
 
     <div class="container">
         <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-        <span class="lead">{{ .Date.Format $.Site.Params.dateFormat }}</span>
-        <p>{{ .Params.author }}</p>
+        <span class="lead">{{ .Params.author }}</span>
+        <p>{{ .Date.Format $.Site.Params.dateFormat }}</p>
         <div class="post">
             {{ .Content }}
         </div>
