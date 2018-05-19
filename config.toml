@@ -1,5 +1,5 @@
 theme = "hugo-bootswatch"
-baseURL = "https://vegawidget.github.io/"
+baseURL = "https://vegawidget.netlify.io/"
 languageCode = "en-us"
 title = "vegawidget"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
