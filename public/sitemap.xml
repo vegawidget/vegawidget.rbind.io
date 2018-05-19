@@ -3,40 +3,40 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/2018-05-19-welcome/</loc>
+    <loc>https://vegawidget.netlify.io/post/2018-05-19-welcome/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>https://vegawidget.netlify.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/meta/</loc>
-    <lastmod>2018-05-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
+    <loc>https://vegawidget.netlify.io/categories/meta/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/welcome/</loc>
+    <loc>https://vegawidget.netlify.io/post/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://vegawidget.netlify.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vegawidget.netlify.io/tags/welcome/</loc>
+    <lastmod>2018-05-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://vegawidget.netlify.io/</loc>
     <lastmod>2018-05-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

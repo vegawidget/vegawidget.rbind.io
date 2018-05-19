@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on vegawidget</title>
-    <link>/categories/</link>
+    <link>https://vegawidget.netlify.io/categories/</link>
     <description>Recent content in Categories on vegawidget</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vegawidget.netlify.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Meta</title>
-      <link>/categories/meta/</link>
+      <link>https://vegawidget.netlify.io/categories/meta/</link>
       <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/categories/meta/</guid>
+      <guid>https://vegawidget.netlify.io/categories/meta/</guid>
       <description></description>
     </item>
     
