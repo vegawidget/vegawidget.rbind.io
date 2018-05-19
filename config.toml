@@ -1,9 +1,7 @@
 theme = "hugo-bootswatch"
-baseURL = "https://vegawidget.github.io//"
+baseURL = "https://vegawidget.github.io/"
 languageCode = "en-us"
 title = "vegawidget"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
-
-publishDir = "docs"
 
 dateForm = "2006-01-02"
