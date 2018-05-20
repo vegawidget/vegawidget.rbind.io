@@ -6,17 +6,17 @@
     <description>Recent content on vegawidget</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 May 2018 00:00:01 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 May 2018 00:00:01 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Introducing altair, an R interface to the Altair Python Package</title>
-      <link>/post/2018-05-19-introducing-altair/</link>
-      <pubDate>Sat, 19 May 2018 00:00:01 +0000</pubDate>
+      <link>/post/2018-05-20-introducing-altair/</link>
+      <pubDate>Sun, 20 May 2018 00:00:01 +0000</pubDate>
       
-      <guid>/post/2018-05-19-introducing-altair/</guid>
+      <guid>/post/2018-05-20-introducing-altair/</guid>
       <description>Introducing altair, an R package to work with the Python package Altair, which you can use to build and render Vega-Lite chart-specifications:
 https://vegawidget.github.io/altair
 Vega-Lite offers an implementation of an interactive grammar of graphics. The vocabulary and syntax of this grammar is different from that used by ggplot2. However, the fundamental ideas are very much the same: ggplot2 offers aesthetics, geoms, and scales; Vega-Lite offers marks, encondings, and scales.</description>
@@ -25,9 +25,19 @@ Vega-Lite offers an implementation of an interactive grammar of graphics. The vo
     <item>
       <title>Welcome to vegawidget</title>
       <link>/post/2018-05-19-welcome/</link>
-      <pubDate>Sat, 19 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/2018-05-19-welcome/</guid>
+      <description>The effort to bring Vega-Lite to the R community is collaborative; so it appropriate that the altair package be hosted by an organization. The altair R package uses the Altair Python package to create Vega-Lite specifications for interactive charts.
+This group is named vegawidget, after the altair::vegawidget() function, which is used to render Vega and Vega-Lite chart specifications into HTML. In the not-so-distant future, this renderer will have its own package, also hosted by this organization.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to vegawidget</title>
+      <link>/post/2018-05-20-welcome/</link>
+      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2018-05-20-welcome/</guid>
       <description>The effort to bring Vega-Lite to the R community is collaborative; so it appropriate that the altair package be hosted by an organization. The altair R package uses the Altair Python package to create Vega-Lite specifications for interactive charts.
 This group is named vegawidget, after the altair::vegawidget() function, which is used to render Vega and Vega-Lite chart specifications into HTML. In the not-so-distant future, this renderer will have its own package, also hosted by this organization.</description>
     </item>

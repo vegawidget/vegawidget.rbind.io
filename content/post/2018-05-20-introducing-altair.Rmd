@@ -1,7 +1,7 @@
 ---
 title: "Introducing altair, an R interface to the Altair Python Package"
 author: "Ian Lyttle"
-date: "2018-05-19T00:00:01Z" 
+date: "2018-05-20T00:00:01Z" 
 categories: ["meta"]
 tags: ["welcome"]
 ---
@@ -17,7 +17,7 @@ Introducing **altair**, an R package to work with the Python package [Altair](ht
 
 https://vegawidget.github.io/altair 
 
-Vega-Lite offers an implementation of an interactive grammar of graphics. The vocabulary and syntax of this grammar is different from that used by [ggplot2](http://ggplot2.tidyverse.org/). However, the fundamental ideas are very much the same: ggplot2 offers aesthetics, geoms, and scales; Vega-Lite offers marks, encondings, and scales. Vega-Lite also offers interactivity "baked into" the rendering.
+Vega-Lite offers an implementation of an interactive grammar of graphics. The vocabulary and syntax of this grammar is different from that used by [ggplot2](http://ggplot2.tidyverse.org/). However, the fundamental ideas are very much the same: ggplot2 offers *aesthetics*, *geoms*, and *scales*; Vega-Lite offers *marks*, *encondings*, and *scales*. Vega-Lite also offers interactivity "baked into" the rendering.
 
 ### Demonstration
 
@@ -54,9 +54,13 @@ chart <-
     title = "Linked-Brush Scatterplot"
   )
 ```
+
+```{r eval=FALSE}
+chart
+```
 </details>
 
-```{r}
+```{r echo=FALSE}
 chart
 ```
 
