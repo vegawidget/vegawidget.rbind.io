@@ -16,7 +16,6 @@ knitr::opts_chunk$set(collapse = TRUE)
 options(altair.embed_options = altair::vega_embed())
 ```
 
-
 Introducing **altair**, an R package to work with the Python package [Altair](https://altair-viz.github.io/), which you can use to build and render [Vega-Lite](https://vega.github.io/vega-lite/) chart-specifications: 
 
 https://vegawidget.github.io/altair 
