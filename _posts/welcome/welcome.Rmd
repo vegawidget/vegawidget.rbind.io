@@ -1,0 +1,21 @@
+---
+title: "Welcome to vegawidget"
+description: |
+  Why "vegawidget"?
+author:
+  - name: Ian Lyttle
+date: 2018-05-20
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+The effort to bring Vega-Lite to the R community is collaborative; so it appropriate that the **altair** package be hosted by an organization. The altair R package uses the [Altair Python package](https://altair-viz.github.io/index.html) to create [Vega-Lite](https://vega.github.io/vega-lite/) specifications for interactive charts.
+
+This group is named **vegawidget**, after the `altair::vegawidget()` function, which is used to render Vega and Vega-Lite chart specifications into HTML. In the not-so-distant future, this renderer will have its own package, also hosted by this organization.
+
