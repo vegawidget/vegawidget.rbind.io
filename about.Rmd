@@ -1,0 +1,13 @@
+---
+title: "About vegawidget"
+description: |
+  Our purpose
+author:
+  - name: Ian Lyttle
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+The purpose of the vegawidget orgnaization is to host packages that create Vega and Vega-Lite specifications, and use the **vegawidget** package to render its charts. 
