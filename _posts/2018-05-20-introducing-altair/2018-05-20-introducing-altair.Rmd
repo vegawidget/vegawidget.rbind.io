@@ -2,6 +2,7 @@
 title: "Introducing altair"
 description: |
   An R interface to the Altair Python Package
+preview: preview.svg
 author:
   - name: Ian Lyttle
 date: 2018-05-20
@@ -85,4 +86,26 @@ It is a lot of fun to work with these folks on this project; this package would 
 
  - [Heike Hofmann](https://github.com/heike) has been an invaluable advisor, providing incisive feedback, and insight into the fundamentals of interactive graphics.
 
-
+```{r}
+# write out a preview image
+chart_mpg <-
+  alt$Chart()$
+  mark_point()$
+  encode(
+    x = "Horsepower:Q",
+    y = "Miles_per_Gallon:Q",
+    color = "Origin:N"
+  )$
+  properties(width = 250, height = 250) 
+chart_disp <- 
+  chart_mpg$encode(
+    x = "Displacement:Q"
+  )
+chart <- 
+  (chart_mpg | chart_disp)$
+  properties(
+    data = r_to_py(vega_data$cars()),
+    title = "Linked-Brush Scatterplot"
+  )
+vw_write_svg(chart, "preview.svg")
+```

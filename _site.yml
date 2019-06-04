@@ -2,6 +2,7 @@ name: "vegawidget"
 title: "vegawidget"
 description: |
   vegawidget
+base_url: https://vegawidget.rbind.io
 output_dir: "_site"
 navbar:
   right:
