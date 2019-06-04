@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>vegawidget</title>
+    <link>https://vegawidget.rbind.io</link>
+    <atom:link href="https://vegawidget.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
+    <description>vegawidget
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Sun, 20 May 2018 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Introducing altair</title>
+      <dc:creator>Ian Lyttle</dc:creator>
+      <link>https://vegawidget.rbind.io/posts/2018-05-20-introducing-altair</link>
+      <description>An R interface to the Altair Python Package</description>
+      <guid>https://vegawidget.rbind.io/posts/2018-05-20-introducing-altair</guid>
+      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://vegawidget.rbind.io/posts/2018-05-20-introducing-altair/preview.svg" medium="image" type="image/svg+xml"/>
+    </item>
+    <item>
+      <title>Welcome to vegawidget</title>
+      <dc:creator>Ian Lyttle</dc:creator>
+      <link>https://vegawidget.rbind.io/posts/welcome</link>
+      <description>Why "vegawidget"?</description>
+      <guid>https://vegawidget.rbind.io/posts/welcome</guid>
+      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
