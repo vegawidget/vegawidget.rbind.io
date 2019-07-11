@@ -16,17 +16,27 @@ output:
 library("fontawesome") # rstudio/fontawesome
 knitr::opts_chunk$set(echo = FALSE)
 ```
-As I was building the [slides](vegawidget.pdf) for this presentation, I noticed that it started out as vegawidget the *package*, and ended up as vegawidget the *organization*. 
 
-## Packages
+It's very exciting to be presenting at UseR! 2019 in Toulouse, France.
 
-We are pleased to announce the CRAN release of [vegawidget 0.2.1](https://vegawidget.github.io/vegawidget), which uses Vega-Lite 3.3.0. 
+This presentation [[`r fa("file-pdf")`](vegawidget.pdf)]  incorporates contributions from the entire [vegawidget organization](https://github.com/vegawidget):
 
-We see the vegawidget package as playing a role within a larger vegawidget organization. Here's how we see the end-to-end process of building and deploying a Vega-Lite chart using R:
+- Ian Lyttle  [`r fa("github")`](https://github.com/ijlyttle)  [`r fa("twitter")`](https://twitter.com/ijlyttle)
+- Haley Jeppson [`r fa("github")`](https://github.com/haleyjeppson)  [`r fa("twitter")`](https://twitter.com/heyhayhay__)
+- Alicia Schep [`r fa("github")`](https://github.com/AliciaSchep)  [`r fa("twitter")`](https://twitter.com/AliciaSchep)
+- Stuart Lee [`r fa("github")`](https://github.com/sa-lee)  [`r fa("twitter")`](https://twitter.com/_StuartLee)
+- Wenyu Yang [`r fa("github")`](https://github.com/wenyuyangpku)  [`r fa("twitter")`](https://twitter.com/heyhayhay__)
+- Heike Hofmann [`r fa("github")`](https://github.com/heike)  [`r fa("twitter")`](https://twitter.com/heike_hh)
 
-![](diagram.png)
+This post also serves as an announcement for the CRAN release of [vegawidget 0.2.1](https://vegawidget.github.io/vegawidget), which incorporates Vega-Lite 3.3.0. 
 
-Working backwards from the end-user, we see three steps: the Vega-Lite library itself, rendering a JSON specification into a chart, and composing a specification:
+The vegawidget package plays a role within a larger process. Here's how we see the end-to-end process of building and deploying a Vega-Lite chart using R:
+
+
+![](diagram.png)^[Code icons made by Smashicons from www.flaticon.com]
+
+Working backwards from the end-user, we see three steps: the *Vega-Lite* library itself displays a chart in a browser, *rendered* from a JSON specification, which is *composed* by an R programmer.
+
 
 - [Vega-Lite](https://vega.github.io/vega-lite/)
 
@@ -35,13 +45,13 @@ Working backwards from the end-user, we see three steps: the Vega-Lite library i
 
 - Rendering
 
-  - [vegawidget](https://vegawidget.github.io/vegawidget/): htmlwidget package to deliver Vega-Lite specifications to Vega-Lite; also provide interactive access to Vega-Lite charts. ![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
+  - [vegawidget](https://vegawidget.github.io/vegawidget/): htmlwidget package to render Vega-Lite specifications to Vega-Lite; also to provide interactive access (including Shiny) to Vega-Lite charts. ![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
 			
 - Composing
 
-These packages are created by members of the [vegawidget organization](https://github.com/vegawidget):
+  These packages are created by members of the [vegawidget organization](https://github.com/vegawidget):
 
-  - [altair](https://vegawidget.github.io/altair): wraps Python package [Altair](https://altair-viz.github.io), covers entire Vega-Lite API. ![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
+  - [altair](https://vegawidget.github.io/altair): wraps Python package [Altair](https://altair-viz.github.io), which covers entire Vega-Lite API. ![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)
     
   - [vlbuildr](https://vegawidget.github.io/vlbuildr): covers entire Vega-Lite API, with pipeable functions.	![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
   
@@ -49,13 +59,4 @@ These packages are created by members of the [vegawidget organization](https://g
     
 Going forward, we expect to focus more-and-more on the packages to *compose* specifications, while the vegawidget package *renders* in the "background".    
 
-## People
 
-These are the folks behind the [vegawidget organization](https://github.com/vegawidget):
-
-- Ian Lyttle  [`r fa("github")`](https://github.com/ijlyttle)  [`r fa("twitter")`](https://twitter.com/ijlyttle)
-- Haley Jeppson [`r fa("github")`](https://github.com/haleyjeppson)  [`r fa("twitter")`](https://twitter.com/heyhayhay__)
-- Alicia Schep [`r fa("github")`](https://github.com/AliciaSchep)  [`r fa("twitter")`](https://twitter.com/AliciaSchep)
-- Stuart Lee [`r fa("github")`](https://github.com/sa-lee)  [`r fa("twitter")`](https://twitter.com/_StuartLee)
-- Wenyu Yang [`r fa("github")`](https://github.com/wenyuyangpku)  [`r fa("twitter")`](https://twitter.com/heyhayhay__)
-- Heike Hofmann [`r fa("github")`](https://github.com/heike)  [`r fa("twitter")`](https://twitter.com/heike_hh)
