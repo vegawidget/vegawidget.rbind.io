@@ -25,7 +25,7 @@ This presentation [[`r fa("file-pdf")`](vegawidget.pdf)]  incorporates contribut
 - Haley Jeppson [`r fa("github")`](https://github.com/haleyjeppson)  [`r fa("twitter")`](https://twitter.com/heyhayhay__)
 - Alicia Schep [`r fa("github")`](https://github.com/AliciaSchep)  [`r fa("twitter")`](https://twitter.com/AliciaSchep)
 - Stuart Lee [`r fa("github")`](https://github.com/sa-lee)  [`r fa("twitter")`](https://twitter.com/_StuartLee)
-- Wenyu Yang [`r fa("github")`](https://github.com/wenyuyangpku)  [`r fa("twitter")`](https://twitter.com/heyhayhay__)
+- Wenyu Yang [`r fa("github")`](https://github.com/wenyuyangpku)  [`r fa("twitter")`](https://twitter.com/iuysa1)
 - Heike Hofmann [`r fa("github")`](https://github.com/heike)  [`r fa("twitter")`](https://twitter.com/heike_hh)
 
 This post also serves as an announcement for the CRAN release of [vegawidget 0.2.1](https://vegawidget.github.io/vegawidget), which incorporates Vega-Lite 3.3.0. 
