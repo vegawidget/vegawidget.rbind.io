@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://vegawidget.rbind.io/about.html</loc>
-    <lastmod>2019-06-04T08:51:35-05:00</lastmod>
+    <lastmod>2019-06-04T17:44:40+02:00</lastmod>
   </url>
   <url>
     <loc>https://vegawidget.rbind.io/</loc>
-    <lastmod>2019-06-04T09:25:23-05:00</lastmod>
+    <lastmod>2019-07-10T10:10:46+02:00</lastmod>
+  </url>
+  <url>
+    <loc>https://vegawidget.rbind.io/posts/2019-07-10-user-2019-presentation/</loc>
+    <lastmod>2019-07-11T10:39:47+02:00</lastmod>
   </url>
   <url>
     <loc>https://vegawidget.rbind.io/posts/2018-05-20-introducing-altair/</loc>
-    <lastmod>2019-06-04T09:49:08-05:00</lastmod>
+    <lastmod>2019-06-04T17:44:40+02:00</lastmod>
   </url>
   <url>
     <loc>https://vegawidget.rbind.io/posts/welcome/</loc>
-    <lastmod>2019-06-04T07:45:31-05:00</lastmod>
+    <lastmod>2019-06-04T17:44:40+02:00</lastmod>
   </url>
 </urlset>
