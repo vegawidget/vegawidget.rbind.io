@@ -67,17 +67,13 @@ In general, wherever you see the `.` used in Python syntax, use a `$` in R. Of c
 
 A few words about the development philosophy of this package: our goal is to provide a faithful representation of the Altair package; we do not want to introduce any opinions beyond those introduced by the Altair authors. In other words, we would want that Jake Vanderplas could use this package and feel as much as possible "at home". As such, we introduce very few functions of our own; these deal mainly with installation, view-composition, and rendering.
 
-<<<<<<< HEAD
 The rendering functions themselves are re-exported from the [**vegawidget**](https://vegawidget.github.io/vegawidget) package, which offers additional functions to provide interactivity using Shiny. We offer an online [example](https://ijlyttle.shinyapps.io/vegawidget-gapminder), and an [article](https://vegawidget.github.io/vegawidget/articles/articles/shiny.html).
-=======
-The rendering functions themselves are re-exported from the [**vewgawidget**](https://vegawidget.github.io/vegawidget) package, which offers additional functions to provide interactivity using Shiny. We offer an online [example](https://ijlyttle.shinyapps.io/vegawidget-gapminder), and an [article](https://vegawidget.github.io/vegawidget/articles/articles/shiny.html).
->>>>>>> master
 
 Finally to acknowledge the support of collaborators, near and not-so-near:
 
 - [Alicia Schep](https://github.com/aliciaschep), for contributing the [view-composition functions](https://vegawidget.github.io/altair/articles/view-composition.html) and her wise counsel.
 
-- [Jake Vanderplas](https://github.com/jakevdp), for his development of Altair and his support for this wrapping-package.
+- [Jake Vanderplas](https://github.com/jakevdp), for his development of Altair and his support of this package.
 
 
 
