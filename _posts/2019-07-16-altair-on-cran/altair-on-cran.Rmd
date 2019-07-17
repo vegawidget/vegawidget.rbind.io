@@ -1,7 +1,7 @@
 ---
 title: "altair 3.1.1 on CRAN"
 description: |
-  Just in time for its UseR! presentation 
+  R interface to Python Altair 
 author:
   - name: Ian Lyttle
     url: "https://github.com/ijlyttle"

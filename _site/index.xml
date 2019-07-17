@@ -13,7 +13,7 @@
       <dc:creator>Ian Lyttle</dc:creator>
       <dc:creator>Haley Jeppson</dc:creator>
       <link>https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran</link>
-      <description>Just in time for its UseR! presentation</description>
+      <description>R interface to Python Altair</description>
       <guid>https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran</guid>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
       <media:content url="https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/activity.svg" medium="image" type="image/svg+xml"/>

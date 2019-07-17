@@ -2,7 +2,7 @@
   {
     "path": "posts/2019-07-16-altair-on-cran/",
     "title": "altair 3.1.1 on CRAN",
-    "description": "Just in time for its UseR! presentation",
+    "description": "R interface to Python Altair",
     "author": [
       {
         "name": "Ian Lyttle",
@@ -16,7 +16,7 @@
     "date": "2019-07-17",
     "categories": [],
     "preview": "posts/2019-07-16-altair-on-cran/activity.svg",
-    "last_modified": "2019-07-17T14:39:04-05:00"
+    "last_modified": "2019-07-17T14:43:05-05:00"
   },
   {
     "path": "posts/2019-07-10-user-2019-presentation/",
