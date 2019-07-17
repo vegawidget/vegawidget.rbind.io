@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2019-07-16-altair-on-cran/",
+    "title": "altair 3.1.1 on CRAN",
+    "description": "Just in time for its UseR! presentation",
+    "author": [
+      {
+        "name": "Ian Lyttle",
+        "url": "https://github.com/ijlyttle"
+      },
+      {
+        "name": "Haley Jeppson",
+        "url": "https://github.com/haleyjeppson"
+      }
+    ],
+    "date": "2019-07-17",
+    "categories": [],
+    "preview": "posts/2019-07-16-altair-on-cran/activity.svg",
+    "last_modified": "2019-07-17T13:02:57-05:00"
+  },
+  {
     "path": "posts/2019-07-10-user-2019-presentation/",
     "title": "UseR! 2019 Presentation",
     "description": "A talk about the vegawidget organization",

@@ -7,7 +7,17 @@
     <description>vegawidget
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>altair 3.1.1 on CRAN</title>
+      <dc:creator>Ian Lyttle</dc:creator>
+      <dc:creator>Haley Jeppson</dc:creator>
+      <link>https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran</link>
+      <description>Just in time for its UseR! presentation</description>
+      <guid>https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran</guid>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/activity.svg" medium="image" type="image/svg+xml"/>
+    </item>
     <item>
       <title>UseR! 2019 Presentation</title>
       <dc:creator>Ian Lyttle</dc:creator>
