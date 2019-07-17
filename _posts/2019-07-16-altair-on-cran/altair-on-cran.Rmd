@@ -77,7 +77,7 @@ Finally to acknowledge the support of collaborators, near and not-so-near:
 
 - [Alicia Schep](https://github.com/aliciaschep), for contributing the [view-composition functions](https://vegawidget.github.io/altair/articles/view-composition.html) and her wise counsel.
 
-- [Jake Vanderplas](https://github.com/jakevdp), for his development of Altair and support of for this wrapping-package.
+- [Jake Vanderplas](https://github.com/jakevdp), for his development of Altair and his support for this wrapping-package.
 
 
 
