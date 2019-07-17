@@ -1,0 +1,80 @@
+---
+title: "altair 3.1.1 on CRAN"
+description: |
+  Just in time for its UseR! presentation 
+author:
+  - name: Ian Lyttle
+    url: "https://github.com/ijlyttle"
+  - name: Haley Jeppson
+    url: "https://github.com/haleyjeppson"
+date: 2019-07-17
+preview: activity.svg
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A little over a year since its first introduction, we are pleased to announce the release on CRAN of [**altair**](https://vegawidget.github.io/altair), an R interface to the [**Altair**](https://altair-viz.github.io) Python package, which itself provides an interface to build [**Vega-Lite**](https://vega.github.io/vega-lite) charts.
+
+To minimize confusion with the Python package, we will use "altair" to refer to the R package, and "Altair" to refer to the Python package. As well, the first two numbers in the version of altair (currently `r packageVersion("altair")`) will mirror the first two numbers of the supported Altair version (currently `r altair::altair_version()$altair`).
+
+By taking advantage of the [**reticulate**](https://rstudio.github.io/reticulate) package, altair exposes all of the functions in the Altair package. For example, this scatterplot has interactive scales (you can pan-and-zoom):
+
+```{r}
+library("altair")
+
+vega_data <- import_vega_data()
+
+alt$Chart(vega_data$cars())$
+  mark_point()$
+  encode(
+    x = "Horsepower",
+    y = "Miles_per_Gallon",
+    color = "Origin"
+  )$
+  interactive()
+```
+
+Here's another example showing some of the data-transformation capabilities of Vega-Lite: 
+
+```{r}
+source <- 
+  data.frame(
+    Activity = c("Sleeping", "Eating", "TV", "Work", "Exercise"),
+    Time = c(8, 2, 4, 8, 2)
+  )
+
+alt$Chart(source)$
+  transform_joinaggregate(TotalTime = "sum(Time)")$
+  transform_calculate(ProportionOfTotal = "datum.Time / datum.TotalTime")$
+  mark_bar()$
+  encode(
+    x = alt$X("ProportionOfTotal:Q", axis = alt$Axis(format = ".0%")),
+    y = alt$Y(
+      "Activity:N", 
+      sort = alt$Sort(field = "ProportionOfTotal", order = "descending")
+    )
+ )
+```
+
+For more examples, please see our example gallery ([starting here](https://vegawidget.github.io/altair/articles/example-gallery-01-simple.html)), where Haley Jeppson has reproduced the entire [Altair gallery](https://altair-viz.github.io/gallery/), demonstrating that whatever you can do in Python Altair, you can do also from R.
+
+In general, wherever you see the `.` used in Python syntax, use a `$` in R. Of course, to use altair, you will need to install Python. If you have Python installed already (we recommend Conda), you can use altair's `install_altair()` function to install Altair.
+
+A few words about the development philosophy of this package: our goal is to provide a faithful representation of the Altair package; we do not want to introduce any opinions beyond those introduced by the Altair authors. In other words, we would want that Jake Vanderplas could use this package and feel as much as possible "at home". As such, we introduce very few functions of our own; these deal mainly with installation, view-composition, and rendering.
+
+The rendering functions themselves are re-exported from the [**vewgawidget**](https://vegawidget.github.io/vegawidget) package, which offers additional functions to provide interactivity using Shiny. We offer an online [example](https://ijlyttle.shinyapps.io/vegawidget-gapminder), and an [article](https://vegawidget.github.io/vegawidget/articles/articles/shiny.html).
+
+Finally to acknowledge the support of collaborators, near and not-so-near:
+
+- [Alicia Schep](https://github.com/aliciaschep), for contributing the [view-composition functions](https://vegawidget.github.io/altair/articles/view-composition.html) and her wise counsel.
+
+- [Jake Vanderplas](https://github.com/jakevdp), for his development of Altair and support of for this wrapping-package.
+
+
+
+

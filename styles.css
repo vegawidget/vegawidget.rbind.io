@@ -14,7 +14,7 @@ d-article li {
 
 /* tweaks margins */
 .html-widget {
-  margin-bottom: 0;
+  margin-bottom: 5;
 }
 
 .nav-dropdown-content a:not([href]) {

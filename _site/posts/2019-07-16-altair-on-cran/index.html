@@ -1,0 +1,6062 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>vegawidget: altair 3.1.1 on CRAN</title>
+
+<meta property="description" itemprop="description" content="Just in time for its UseR! presentation"/>
+
+<link rel="canonical" href="https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2019-07-17"/>
+<meta property="article:created" itemprop="dateCreated" content="2019-07-17"/>
+<meta name="article:author" content="Ian Lyttle"/>
+<meta name="article:author" content="Haley Jeppson"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="vegawidget: altair 3.1.1 on CRAN"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="Just in time for its UseR! presentation"/>
+<meta property="og:url" content="https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/"/>
+<meta property="og:image" content="https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/activity.svg"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="vegawidget"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="vegawidget: altair 3.1.1 on CRAN"/>
+<meta property="twitter:description" content="Just in time for its UseR! presentation"/>
+<meta property="twitter:url" content="https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/"/>
+<meta property="twitter:image" content="https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/activity.svg"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="vegawidget: altair 3.1.1 on CRAN"/>
+<meta name="citation_fulltext_html_url" content="https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/"/>
+<meta name="citation_online_date" content="2019/07/17"/>
+<meta name="citation_publication_date" content="2019/07/17"/>
+<meta name="citation_author" content="Ian Lyttle"/>
+<meta name="citation_author" content="Haley Jeppson"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","preview","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["altair 3.1.1 on CRAN"]},{"type":"character","attributes":{},"value":["Just in time for its UseR! presentation"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Ian Lyttle"]},{"type":"character","attributes":{},"value":["https://github.com/ijlyttle"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Haley Jeppson"]},{"type":"character","attributes":{},"value":["https://github.com/haleyjeppson"]}]}]},{"type":"character","attributes":{},"value":["2019-07-17"]},{"type":"character","attributes":{},"value":["activity.svg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/"]},{"type":"character","attributes":{},"value":["https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["activity.svg","altair-on-cran_files/bowser-1.9.3/bowser.min.js","altair-on-cran_files/distill-2.2.21/template.v2.js","altair-on-cran_files/htmlwidgets-1.3/htmlwidgets.js","altair-on-cran_files/jquery-1.11.3/jquery.min.js","altair-on-cran_files/vega-5.4.0/LICENSE","altair-on-cran_files/vega-5.4.0/vega.min.js","altair-on-cran_files/vega-embed-4.2.0/LICENSE","altair-on-cran_files/vega-embed-4.2.0/vega-embed.css","altair-on-cran_files/vega-embed-4.2.0/vega-embed.js","altair-on-cran_files/vega-lite-3.3.0/LICENSE","altair-on-cran_files/vega-lite-3.3.0/vega-lite.min.js","altair-on-cran_files/vegawidget-binding-0.2.1/vegawidget.js","altair-on-cran_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+  <script src="../../site_libs/vega-5.4.0/vega.min.js"></script>
+  <script src="../../site_libs/vega-lite-3.3.0/vega-lite.min.js"></script>
+  <link href="../../site_libs/vega-embed-4.2.0/vega-embed.css" rel="stylesheet" />
+  <script src="../../site_libs/vega-embed-4.2.0/vega-embed.js"></script>
+  <script src="../../site_libs/vegawidget-binding-0.2.1/vegawidget.js"></script>
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<style type="text/css">
+.distill-site-nav {
+  color: rgba(255, 255, 255, 1.0);              /* text: white */
+  background-color: rgba(168, 159, 135, 1.0);   /* background: egg */
+}
+
+.nav-dropdown .nav-dropbtn {
+  color: rgba(255, 255, 255, 1.0);  /* text: white */
+}
+
+/* reduces spacing on lists from 1em to 0em */
+d-article li {
+  margin-bottom: 0;
+}
+
+/* tweaks margins */
+.html-widget {
+  margin-bottom: 5;
+}
+
+.nav-dropdown-content a:not([href]) {
+  font-weight: 600;
+  font-size: smaller;
+  background-color: white;
+}
+
+/* vega-embed */
+
+/* protects tooltip spacing */
+#vg-tooltip-element {
+  line-height: 1.0;
+}
+
+/* protects action links */
+.vega-embed .vega-actions a {
+  font-weight: 400;
+  line-height: 1.0;
+  border-bottom: 0;
+}
+
+/* tweaks gallerywidget */
+
+.gallerywidget-subtitle {
+  color: #333;
+  font-weight: 300;
+}
+
+/* helps to align bages in text */
+img {
+  vertical-align: middle;
+}
+</style>
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"altair 3.1.1 on CRAN","description":"Just in time for its UseR! presentation","authors":[{"author":"Ian Lyttle","authorURL":"https://github.com/ijlyttle","affiliation":"&nbsp;","affiliationURL":"#"},{"author":"Haley Jeppson","authorURL":"https://github.com/haleyjeppson","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-07-17T00:00:00.000-05:00","citationText":"Lyttle & Jeppson, 2019"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="../../index.html" class="title">vegawidget</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="../../about.html">About</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>altair 3.1.1 on CRAN</h1>
+<p><p>Just in time for its UseR! presentation</p></p>
+</div>
+
+<div class="d-byline">
+  Ian Lyttle <a href="https://github.com/ijlyttle" class="uri">https://github.com/ijlyttle</a> 
+  
+,   Haley Jeppson <a href="https://github.com/haleyjeppson" class="uri">https://github.com/haleyjeppson</a> 
+  
+<br/>2019-07-17
+</div>
+
+<div class="d-article">
+<p>A little over a year since its first introduction, we are pleased to announce the release on CRAN of <a href="https://vegawidget.github.io/altair"><strong>altair</strong></a>, an R interface to the <a href="https://altair-viz.github.io"><strong>Altair</strong></a> Python package, which itself provides an interface to build <a href="https://vega.github.io/vega-lite"><strong>Vega-Lite</strong></a> charts.</p>
+<p>To minimize confusion with the Python package, we will use “altair” to refer to the R package, and “Altair” to refer to the Python package. As well, the first two numbers in the version of altair (currently 3.1.1) will mirror the first two numbers of the supported Altair version (currently 3.1.0).</p>
+<p>By taking advantage of the <a href="https://rstudio.github.io/reticulate"><strong>reticulate</strong></a> package, altair exposes all of the functions in the Altair package. For example, this scatterplot has interactive scales (you can pan-and-zoom):</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(&quot;altair&quot;)
+
+vega_data &lt;- import_vega_data()
+
+alt$Chart(vega_data$cars())$
+  mark_point()$
+  encode(
+    x = &quot;Horsepower&quot;,
+    y = &quot;Miles_per_Gallon&quot;,
+    color = &quot;Origin&quot;
+  )$
+  interactive()</code></pre>
+<div id="htmlwidget-e2fe64788d7779742f60" style="width:auto;height:auto;" class="vegawidget html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e2fe64788d7779742f60">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json",
+    "config": {
+      "mark": {
+        "tooltip": null
+      },
+      "view": {
+        "height": 300,
+        "width": 400
+      }
+    },
+    "data": {
+      "name": "data-78e27ac656897389278b80bd25604922"
+    },
+    "datasets": {
+      "data-78e27ac656897389278b80bd25604922": [
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 307,
+          "Horsepower": 130,
+          "Miles_per_Gallon": 18,
+          "Name": "chevrolet chevelle malibu",
+          "Origin": "USA",
+          "Weight_in_lbs": 3504,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.5,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 165,
+          "Miles_per_Gallon": 15,
+          "Name": "buick skylark 320",
+          "Origin": "USA",
+          "Weight_in_lbs": 3693,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 18,
+          "Name": "plymouth satellite",
+          "Origin": "USA",
+          "Weight_in_lbs": 3436,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 304,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 16,
+          "Name": "amc rebel sst",
+          "Origin": "USA",
+          "Weight_in_lbs": 3433,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 10.5,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 140,
+          "Miles_per_Gallon": 17,
+          "Name": "ford torino",
+          "Origin": "USA",
+          "Weight_in_lbs": 3449,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 10,
+          "Cylinders": 8,
+          "Displacement": 429,
+          "Horsepower": 198,
+          "Miles_per_Gallon": 15,
+          "Name": "ford galaxie 500",
+          "Origin": "USA",
+          "Weight_in_lbs": 4341,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 9,
+          "Cylinders": 8,
+          "Displacement": 454,
+          "Horsepower": 220,
+          "Miles_per_Gallon": 14,
+          "Name": "chevrolet impala",
+          "Origin": "USA",
+          "Weight_in_lbs": 4354,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 8.5,
+          "Cylinders": 8,
+          "Displacement": 440,
+          "Horsepower": 215,
+          "Miles_per_Gallon": 14,
+          "Name": "plymouth fury iii",
+          "Origin": "USA",
+          "Weight_in_lbs": 4312,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 10,
+          "Cylinders": 8,
+          "Displacement": 455,
+          "Horsepower": 225,
+          "Miles_per_Gallon": 14,
+          "Name": "pontiac catalina",
+          "Origin": "USA",
+          "Weight_in_lbs": 4425,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 8.5,
+          "Cylinders": 8,
+          "Displacement": 390,
+          "Horsepower": 190,
+          "Miles_per_Gallon": 15,
+          "Name": "amc ambassador dpl",
+          "Origin": "USA",
+          "Weight_in_lbs": 3850,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.5,
+          "Cylinders": 4,
+          "Displacement": 133,
+          "Horsepower": 115,
+          "Miles_per_Gallon": null,
+          "Name": "citroen ds-21 pallas",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3090,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.5,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 165,
+          "Miles_per_Gallon": null,
+          "Name": "chevrolet chevelle concours (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4142,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 153,
+          "Miles_per_Gallon": null,
+          "Name": "ford torino (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4034,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 10.5,
+          "Cylinders": 8,
+          "Displacement": 383,
+          "Horsepower": 175,
+          "Miles_per_Gallon": null,
+          "Name": "plymouth satellite (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4166,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 360,
+          "Horsepower": 175,
+          "Miles_per_Gallon": null,
+          "Name": "amc rebel sst (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 3850,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 10,
+          "Cylinders": 8,
+          "Displacement": 383,
+          "Horsepower": 170,
+          "Miles_per_Gallon": 15,
+          "Name": "dodge challenger se",
+          "Origin": "USA",
+          "Weight_in_lbs": 3563,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 8,
+          "Cylinders": 8,
+          "Displacement": 340,
+          "Horsepower": 160,
+          "Miles_per_Gallon": 14,
+          "Name": "plymouth 'cuda 340",
+          "Origin": "USA",
+          "Weight_in_lbs": 3609,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 8,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 140,
+          "Miles_per_Gallon": null,
+          "Name": "ford mustang boss 302",
+          "Origin": "USA",
+          "Weight_in_lbs": 3353,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 9.5,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 15,
+          "Name": "chevrolet monte carlo",
+          "Origin": "USA",
+          "Weight_in_lbs": 3761,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 10,
+          "Cylinders": 8,
+          "Displacement": 455,
+          "Horsepower": 225,
+          "Miles_per_Gallon": 14,
+          "Name": "buick estate wagon (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 3086,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 4,
+          "Displacement": 113,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 24,
+          "Name": "toyota corona mark ii",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2372,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 6,
+          "Displacement": 198,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 22,
+          "Name": "plymouth duster",
+          "Origin": "USA",
+          "Weight_in_lbs": 2833,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 6,
+          "Displacement": 199,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 18,
+          "Name": "amc hornet",
+          "Origin": "USA",
+          "Weight_in_lbs": 2774,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 6,
+          "Displacement": 200,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 21,
+          "Name": "ford maverick",
+          "Origin": "USA",
+          "Weight_in_lbs": 2587,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 27,
+          "Name": "datsun pl510",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2130,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 20.5,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 46,
+          "Miles_per_Gallon": 26,
+          "Name": "volkswagen 1131 deluxe sedan",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1835,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.5,
+          "Cylinders": 4,
+          "Displacement": 110,
+          "Horsepower": 87,
+          "Miles_per_Gallon": 25,
+          "Name": "peugeot 504",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2672,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 107,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 24,
+          "Name": "audi 100 ls",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2430,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.5,
+          "Cylinders": 4,
+          "Displacement": 104,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 25,
+          "Name": "saab 99e",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2375,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.5,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 113,
+          "Miles_per_Gallon": 26,
+          "Name": "bmw 2002",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2234,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 6,
+          "Displacement": 199,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 21,
+          "Name": "amc gremlin",
+          "Origin": "USA",
+          "Weight_in_lbs": 2648,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 8,
+          "Displacement": 360,
+          "Horsepower": 215,
+          "Miles_per_Gallon": 10,
+          "Name": "ford f250",
+          "Origin": "USA",
+          "Weight_in_lbs": 4615,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 8,
+          "Displacement": 307,
+          "Horsepower": 200,
+          "Miles_per_Gallon": 10,
+          "Name": "chevy c20",
+          "Origin": "USA",
+          "Weight_in_lbs": 4376,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 210,
+          "Miles_per_Gallon": 11,
+          "Name": "dodge d200",
+          "Origin": "USA",
+          "Weight_in_lbs": 4382,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.5,
+          "Cylinders": 8,
+          "Displacement": 304,
+          "Horsepower": 193,
+          "Miles_per_Gallon": 9,
+          "Name": "hi 1200d",
+          "Origin": "USA",
+          "Weight_in_lbs": 4732,
+          "Year": "1970-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 27,
+          "Name": "datsun pl510",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2130,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 28,
+          "Name": "chevrolet vega 2300",
+          "Origin": "USA",
+          "Weight_in_lbs": 2264,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 4,
+          "Displacement": 113,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 25,
+          "Name": "toyota corona",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2228,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": null,
+          "Miles_per_Gallon": 25,
+          "Name": "ford pinto",
+          "Origin": "USA",
+          "Weight_in_lbs": 2046,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 20,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 48,
+          "Miles_per_Gallon": null,
+          "Name": "volkswagen super beetle 117",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1978,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 19,
+          "Name": "amc gremlin",
+          "Origin": "USA",
+          "Weight_in_lbs": 2634,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 16,
+          "Name": "plymouth satellite custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 3439,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 17,
+          "Name": "chevrolet chevelle malibu",
+          "Origin": "USA",
+          "Weight_in_lbs": 3329,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 19,
+          "Name": "ford torino 500",
+          "Origin": "USA",
+          "Weight_in_lbs": 3302,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 18,
+          "Name": "amc matador",
+          "Origin": "USA",
+          "Weight_in_lbs": 3288,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 165,
+          "Miles_per_Gallon": 14,
+          "Name": "chevrolet impala",
+          "Origin": "USA",
+          "Weight_in_lbs": 4209,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.5,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 175,
+          "Miles_per_Gallon": 14,
+          "Name": "pontiac catalina brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 4464,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 153,
+          "Miles_per_Gallon": 14,
+          "Name": "ford galaxie 500",
+          "Origin": "USA",
+          "Weight_in_lbs": 4154,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 14,
+          "Name": "plymouth fury iii",
+          "Origin": "USA",
+          "Weight_in_lbs": 4096,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.5,
+          "Cylinders": 8,
+          "Displacement": 383,
+          "Horsepower": 180,
+          "Miles_per_Gallon": 12,
+          "Name": "dodge monaco (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4955,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 170,
+          "Miles_per_Gallon": 13,
+          "Name": "ford country squire (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4746,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 175,
+          "Miles_per_Gallon": 13,
+          "Name": "pontiac safari (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 5140,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 6,
+          "Displacement": 258,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 18,
+          "Name": "amc hornet sportabout (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 2962,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 72,
+          "Miles_per_Gallon": 22,
+          "Name": "chevrolet vega (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 2408,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 19,
+          "Name": "pontiac firebird",
+          "Origin": "USA",
+          "Weight_in_lbs": 3282,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 18,
+          "Name": "ford mustang",
+          "Origin": "USA",
+          "Weight_in_lbs": 3139,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 4,
+          "Displacement": 122,
+          "Horsepower": 86,
+          "Miles_per_Gallon": 23,
+          "Name": "mercury capri 2000",
+          "Origin": "USA",
+          "Weight_in_lbs": 2220,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 4,
+          "Displacement": 116,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 28,
+          "Name": "opel 1900",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2123,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.5,
+          "Cylinders": 4,
+          "Displacement": 79,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 30,
+          "Name": "peugeot 304",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2074,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 88,
+          "Horsepower": 76,
+          "Miles_per_Gallon": 30,
+          "Name": "fiat 124b",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2065,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 4,
+          "Displacement": 71,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 31,
+          "Name": "toyota corolla 1200",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1773,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18,
+          "Cylinders": 4,
+          "Displacement": 72,
+          "Horsepower": 69,
+          "Miles_per_Gallon": 35,
+          "Name": "datsun 1200",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1613,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 60,
+          "Miles_per_Gallon": 27,
+          "Name": "volkswagen model 111",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1834,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 20.5,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 26,
+          "Name": "plymouth cricket",
+          "Origin": "USA",
+          "Weight_in_lbs": 1955,
+          "Year": "1971-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 113,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 24,
+          "Name": "toyota corona hardtop",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2278,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 97.5,
+          "Horsepower": 80,
+          "Miles_per_Gallon": 25,
+          "Name": "dodge colt hardtop",
+          "Origin": "USA",
+          "Weight_in_lbs": 2126,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 23.5,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 54,
+          "Miles_per_Gallon": 23,
+          "Name": "volkswagen type 3",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2254,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.5,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 20,
+          "Name": "chevrolet vega",
+          "Origin": "USA",
+          "Weight_in_lbs": 2408,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 122,
+          "Horsepower": 86,
+          "Miles_per_Gallon": 21,
+          "Name": "ford pinto runabout",
+          "Origin": "USA",
+          "Weight_in_lbs": 2226,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 165,
+          "Miles_per_Gallon": 13,
+          "Name": "chevrolet impala",
+          "Origin": "USA",
+          "Weight_in_lbs": 4274,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 175,
+          "Miles_per_Gallon": 14,
+          "Name": "pontiac catalina",
+          "Origin": "USA",
+          "Weight_in_lbs": 4385,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 15,
+          "Name": "plymouth fury iii",
+          "Origin": "USA",
+          "Weight_in_lbs": 4135,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 153,
+          "Miles_per_Gallon": 14,
+          "Name": "ford galaxie 500",
+          "Origin": "USA",
+          "Weight_in_lbs": 4129,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.5,
+          "Cylinders": 8,
+          "Displacement": 304,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 17,
+          "Name": "amc ambassador sst",
+          "Origin": "USA",
+          "Weight_in_lbs": 3672,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 429,
+          "Horsepower": 208,
+          "Miles_per_Gallon": 11,
+          "Name": "mercury marquis",
+          "Origin": "USA",
+          "Weight_in_lbs": 4633,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 155,
+          "Miles_per_Gallon": 13,
+          "Name": "buick lesabre custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 4502,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 160,
+          "Miles_per_Gallon": 12,
+          "Name": "oldsmobile delta 88 royale",
+          "Origin": "USA",
+          "Weight_in_lbs": 4456,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.5,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 190,
+          "Miles_per_Gallon": 13,
+          "Name": "chrysler newport royal",
+          "Origin": "USA",
+          "Weight_in_lbs": 4422,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 3,
+          "Displacement": 70,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 19,
+          "Name": "mazda rx2 coupe",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2330,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.5,
+          "Cylinders": 8,
+          "Displacement": 304,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 15,
+          "Name": "amc matador (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 3892,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 8,
+          "Displacement": 307,
+          "Horsepower": 130,
+          "Miles_per_Gallon": 13,
+          "Name": "chevrolet chevelle concours (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4098,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 140,
+          "Miles_per_Gallon": 13,
+          "Name": "ford gran torino (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4294,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 14,
+          "Name": "plymouth satellite custom (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4077,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 112,
+          "Miles_per_Gallon": 18,
+          "Name": "volvo 145e (sw)",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2933,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 76,
+          "Miles_per_Gallon": 22,
+          "Name": "volkswagen 411 (sw)",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2511,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.5,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 87,
+          "Miles_per_Gallon": 21,
+          "Name": "peugeot 504 (sw)",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2979,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18,
+          "Cylinders": 4,
+          "Displacement": 96,
+          "Horsepower": 69,
+          "Miles_per_Gallon": 26,
+          "Name": "renault 12 (sw)",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2189,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 4,
+          "Displacement": 122,
+          "Horsepower": 86,
+          "Miles_per_Gallon": 22,
+          "Name": "ford pinto (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 2395,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 92,
+          "Miles_per_Gallon": 28,
+          "Name": "datsun 510 (sw)",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2288,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 23,
+          "Name": "toyouta corona mark ii (sw)",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2506,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 80,
+          "Miles_per_Gallon": 28,
+          "Name": "dodge colt (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 2164,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 27,
+          "Name": "toyota corolla 1600 (sw)",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2100,
+          "Year": "1972-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 175,
+          "Miles_per_Gallon": 13,
+          "Name": "buick century 350",
+          "Origin": "USA",
+          "Weight_in_lbs": 4100,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.5,
+          "Cylinders": 8,
+          "Displacement": 304,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 14,
+          "Name": "amc matador",
+          "Origin": "USA",
+          "Weight_in_lbs": 3672,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 145,
+          "Miles_per_Gallon": 13,
+          "Name": "chevrolet malibu",
+          "Origin": "USA",
+          "Weight_in_lbs": 3988,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 137,
+          "Miles_per_Gallon": 14,
+          "Name": "ford gran torino",
+          "Origin": "USA",
+          "Weight_in_lbs": 4042,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.5,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 15,
+          "Name": "dodge coronet custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 3777,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.5,
+          "Cylinders": 8,
+          "Displacement": 429,
+          "Horsepower": 198,
+          "Miles_per_Gallon": 12,
+          "Name": "mercury marquis brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 4952,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 13,
+          "Name": "chevrolet caprice classic",
+          "Origin": "USA",
+          "Weight_in_lbs": 4464,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 158,
+          "Miles_per_Gallon": 13,
+          "Name": "ford ltd",
+          "Origin": "USA",
+          "Weight_in_lbs": 4363,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 14,
+          "Name": "plymouth fury gran sedan",
+          "Origin": "USA",
+          "Weight_in_lbs": 4237,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 440,
+          "Horsepower": 215,
+          "Miles_per_Gallon": 13,
+          "Name": "chrysler new yorker brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 4735,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 455,
+          "Horsepower": 225,
+          "Miles_per_Gallon": 12,
+          "Name": "buick electra 225 custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 4951,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 360,
+          "Horsepower": 175,
+          "Miles_per_Gallon": 13,
+          "Name": "amc ambassador brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 3821,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 18,
+          "Name": "plymouth valiant",
+          "Origin": "USA",
+          "Weight_in_lbs": 3121,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 16,
+          "Name": "chevrolet nova custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 3278,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 18,
+          "Name": "amc hornet",
+          "Origin": "USA",
+          "Weight_in_lbs": 2945,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 18,
+          "Name": "ford maverick",
+          "Origin": "USA",
+          "Weight_in_lbs": 3021,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 6,
+          "Displacement": 198,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 23,
+          "Name": "plymouth duster",
+          "Origin": "USA",
+          "Weight_in_lbs": 2904,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 46,
+          "Miles_per_Gallon": 26,
+          "Name": "volkswagen super beetle",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1950,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 11,
+          "Name": "chevrolet impala",
+          "Origin": "USA",
+          "Weight_in_lbs": 4997,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.5,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 167,
+          "Miles_per_Gallon": 12,
+          "Name": "ford country",
+          "Origin": "USA",
+          "Weight_in_lbs": 4906,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 360,
+          "Horsepower": 170,
+          "Miles_per_Gallon": 13,
+          "Name": "plymouth custom suburb",
+          "Origin": "USA",
+          "Weight_in_lbs": 4654,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.5,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 180,
+          "Miles_per_Gallon": 12,
+          "Name": "oldsmobile vista cruiser",
+          "Origin": "USA",
+          "Weight_in_lbs": 4499,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 18,
+          "Name": "amc gremlin",
+          "Origin": "USA",
+          "Weight_in_lbs": 2789,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 20,
+          "Name": "toyota carina",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2279,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.5,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 72,
+          "Miles_per_Gallon": 21,
+          "Name": "chevrolet vega",
+          "Origin": "USA",
+          "Weight_in_lbs": 2401,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 108,
+          "Horsepower": 94,
+          "Miles_per_Gallon": 22,
+          "Name": "datsun 610",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2379,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 3,
+          "Displacement": 70,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 18,
+          "Name": "maxda rx3",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2124,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.5,
+          "Cylinders": 4,
+          "Displacement": 122,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 19,
+          "Name": "ford pinto",
+          "Origin": "USA",
+          "Weight_in_lbs": 2310,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 6,
+          "Displacement": 155,
+          "Horsepower": 107,
+          "Miles_per_Gallon": 21,
+          "Name": "mercury capri v6",
+          "Origin": "USA",
+          "Weight_in_lbs": 2472,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 26,
+          "Name": "fiat 124 sport coupe",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2265,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 145,
+          "Miles_per_Gallon": 15,
+          "Name": "chevrolet monte carlo s",
+          "Origin": "USA",
+          "Weight_in_lbs": 4082,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 9.5,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 230,
+          "Miles_per_Gallon": 16,
+          "Name": "pontiac grand prix",
+          "Origin": "USA",
+          "Weight_in_lbs": 4278,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.5,
+          "Cylinders": 4,
+          "Displacement": 68,
+          "Horsepower": 49,
+          "Miles_per_Gallon": 29,
+          "Name": "fiat 128",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1867,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 116,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 24,
+          "Name": "opel manta",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2158,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 4,
+          "Displacement": 114,
+          "Horsepower": 91,
+          "Miles_per_Gallon": 20,
+          "Name": "audi 100ls",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2582,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 112,
+          "Miles_per_Gallon": 19,
+          "Name": "volvo 144ea",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2868,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 15,
+          "Name": "dodge dart custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 3399,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 24,
+          "Name": "saab 99le",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2660,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 6,
+          "Displacement": 156,
+          "Horsepower": 122,
+          "Miles_per_Gallon": 20,
+          "Name": "toyota mark ii",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2807,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 180,
+          "Miles_per_Gallon": 11,
+          "Name": "oldsmobile omega",
+          "Origin": "USA",
+          "Weight_in_lbs": 3664,
+          "Year": "1973-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 6,
+          "Displacement": 198,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 20,
+          "Name": "plymouth duster",
+          "Origin": "USA",
+          "Weight_in_lbs": 3102,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 6,
+          "Displacement": 200,
+          "Horsepower": null,
+          "Miles_per_Gallon": 21,
+          "Name": "ford maverick",
+          "Origin": "USA",
+          "Weight_in_lbs": 2875,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 19,
+          "Name": "amc hornet",
+          "Origin": "USA",
+          "Weight_in_lbs": 2901,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 15,
+          "Name": "chevrolet nova",
+          "Origin": "USA",
+          "Weight_in_lbs": 3336,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 4,
+          "Displacement": 79,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 31,
+          "Name": "datsun b210",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1950,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 122,
+          "Horsepower": 80,
+          "Miles_per_Gallon": 26,
+          "Name": "ford pinto",
+          "Origin": "USA",
+          "Weight_in_lbs": 2451,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21,
+          "Cylinders": 4,
+          "Displacement": 71,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 32,
+          "Name": "toyota corolla 1200",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1836,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 25,
+          "Name": "chevrolet vega",
+          "Origin": "USA",
+          "Weight_in_lbs": 2542,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 16,
+          "Name": "chevrolet chevelle malibu classic",
+          "Origin": "USA",
+          "Weight_in_lbs": 3781,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18,
+          "Cylinders": 6,
+          "Displacement": 258,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 16,
+          "Name": "amc matador",
+          "Origin": "USA",
+          "Weight_in_lbs": 3632,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 18,
+          "Name": "plymouth satellite sebring",
+          "Origin": "USA",
+          "Weight_in_lbs": 3613,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 140,
+          "Miles_per_Gallon": 16,
+          "Name": "ford gran torino",
+          "Origin": "USA",
+          "Weight_in_lbs": 4141,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 13,
+          "Name": "buick century luxus (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4699,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 14,
+          "Name": "dodge coronet custom (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4457,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 140,
+          "Miles_per_Gallon": 14,
+          "Name": "ford gran torino (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4638,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 8,
+          "Displacement": 304,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 14,
+          "Name": "amc matador (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4257,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 83,
+          "Miles_per_Gallon": 29,
+          "Name": "audi fox",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2219,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 79,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 26,
+          "Name": "volkswagen dasher",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1963,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 78,
+          "Miles_per_Gallon": 26,
+          "Name": "opel manta",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2300,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 76,
+          "Horsepower": 52,
+          "Miles_per_Gallon": 31,
+          "Name": "toyota corona",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1649,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 4,
+          "Displacement": 83,
+          "Horsepower": 61,
+          "Miles_per_Gallon": 32,
+          "Name": "datsun 710",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2003,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 90,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 28,
+          "Name": "dodge colt",
+          "Origin": "USA",
+          "Weight_in_lbs": 2125,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 90,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 24,
+          "Name": "fiat 128",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2108,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 4,
+          "Displacement": 116,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 26,
+          "Name": "fiat 124 tc",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2246,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 24,
+          "Name": "honda civic",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2489,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 108,
+          "Horsepower": 93,
+          "Miles_per_Gallon": 26,
+          "Name": "subaru",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2391,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 4,
+          "Displacement": 79,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 31,
+          "Name": "fiat x1.9",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2000,
+          "Year": "1974-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 19,
+          "Name": "plymouth valiant custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 3264,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 18,
+          "Name": "chevrolet nova",
+          "Origin": "USA",
+          "Weight_in_lbs": 3459,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 72,
+          "Miles_per_Gallon": 15,
+          "Name": "mercury monarch",
+          "Origin": "USA",
+          "Weight_in_lbs": 3432,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.5,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 72,
+          "Miles_per_Gallon": 15,
+          "Name": "ford maverick",
+          "Origin": "USA",
+          "Weight_in_lbs": 3158,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.5,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 170,
+          "Miles_per_Gallon": 16,
+          "Name": "pontiac catalina",
+          "Origin": "USA",
+          "Weight_in_lbs": 4668,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 145,
+          "Miles_per_Gallon": 15,
+          "Name": "chevrolet bel air",
+          "Origin": "USA",
+          "Weight_in_lbs": 4440,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 16,
+          "Name": "plymouth grand fury",
+          "Origin": "USA",
+          "Weight_in_lbs": 4498,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 148,
+          "Miles_per_Gallon": 14,
+          "Name": "ford ltd",
+          "Origin": "USA",
+          "Weight_in_lbs": 4657,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21,
+          "Cylinders": 6,
+          "Displacement": 231,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 17,
+          "Name": "buick century",
+          "Origin": "USA",
+          "Weight_in_lbs": 3907,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.5,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 16,
+          "Name": "chevroelt chevelle malibu",
+          "Origin": "USA",
+          "Weight_in_lbs": 3897,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 6,
+          "Displacement": 258,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 15,
+          "Name": "amc matador",
+          "Origin": "USA",
+          "Weight_in_lbs": 3730,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 18,
+          "Name": "plymouth fury",
+          "Origin": "USA",
+          "Weight_in_lbs": 3785,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 6,
+          "Displacement": 231,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 21,
+          "Name": "buick skyhawk",
+          "Origin": "USA",
+          "Weight_in_lbs": 3039,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 8,
+          "Displacement": 262,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 20,
+          "Name": "chevrolet monza 2+2",
+          "Origin": "USA",
+          "Weight_in_lbs": 3221,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 129,
+          "Miles_per_Gallon": 13,
+          "Name": "ford mustang ii",
+          "Origin": "USA",
+          "Weight_in_lbs": 3169,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 29,
+          "Name": "toyota corolla",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2171,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 83,
+          "Miles_per_Gallon": 23,
+          "Name": "ford pinto",
+          "Origin": "USA",
+          "Weight_in_lbs": 2639,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 20,
+          "Name": "amc gremlin",
+          "Origin": "USA",
+          "Weight_in_lbs": 2914,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.5,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 78,
+          "Miles_per_Gallon": 23,
+          "Name": "pontiac astro",
+          "Origin": "USA",
+          "Weight_in_lbs": 2592,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 4,
+          "Displacement": 134,
+          "Horsepower": 96,
+          "Miles_per_Gallon": 24,
+          "Name": "toyota corona",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2702,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 90,
+          "Horsepower": 71,
+          "Miles_per_Gallon": 25,
+          "Name": "volkswagen dasher",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2223,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 119,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 24,
+          "Name": "datsun 710",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2545,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 6,
+          "Displacement": 171,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 18,
+          "Name": "ford pinto",
+          "Origin": "USA",
+          "Weight_in_lbs": 2984,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 4,
+          "Displacement": 90,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 29,
+          "Name": "volkswagen rabbit",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1937,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 19,
+          "Name": "amc pacer",
+          "Origin": "USA",
+          "Weight_in_lbs": 3211,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 4,
+          "Displacement": 115,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 23,
+          "Name": "audi 100ls",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2694,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 23,
+          "Name": "peugeot 504",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2957,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 98,
+          "Miles_per_Gallon": 22,
+          "Name": "volvo 244dl",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2945,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 115,
+          "Miles_per_Gallon": 25,
+          "Name": "saab 99le",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2671,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.5,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 53,
+          "Miles_per_Gallon": 33,
+          "Name": "honda civic cvcc",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1795,
+          "Year": "1975-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 107,
+          "Horsepower": 86,
+          "Miles_per_Gallon": 28,
+          "Name": "fiat 131",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2464,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.9,
+          "Cylinders": 4,
+          "Displacement": 116,
+          "Horsepower": 81,
+          "Miles_per_Gallon": 25,
+          "Name": "opel 1900",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2220,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.9,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 92,
+          "Miles_per_Gallon": 25,
+          "Name": "capri ii",
+          "Origin": "USA",
+          "Weight_in_lbs": 2572,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.7,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 79,
+          "Miles_per_Gallon": 26,
+          "Name": "dodge colt",
+          "Origin": "USA",
+          "Weight_in_lbs": 2255,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.3,
+          "Cylinders": 4,
+          "Displacement": 101,
+          "Horsepower": 83,
+          "Miles_per_Gallon": 27,
+          "Name": "renault 12tl",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2202,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 305,
+          "Horsepower": 140,
+          "Miles_per_Gallon": 17.5,
+          "Name": "chevrolet chevelle malibu classic",
+          "Origin": "USA",
+          "Weight_in_lbs": 4215,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 16,
+          "Name": "dodge coronet brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 4190,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.9,
+          "Cylinders": 8,
+          "Displacement": 304,
+          "Horsepower": 120,
+          "Miles_per_Gallon": 15.5,
+          "Name": "amc matador",
+          "Origin": "USA",
+          "Weight_in_lbs": 3962,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.8,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 152,
+          "Miles_per_Gallon": 14.5,
+          "Name": "ford gran torino",
+          "Origin": "USA",
+          "Weight_in_lbs": 4215,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.4,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 22,
+          "Name": "plymouth valiant",
+          "Origin": "USA",
+          "Weight_in_lbs": 3233,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 22,
+          "Name": "chevrolet nova",
+          "Origin": "USA",
+          "Weight_in_lbs": 3353,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.6,
+          "Cylinders": 6,
+          "Displacement": 200,
+          "Horsepower": 81,
+          "Miles_per_Gallon": 24,
+          "Name": "ford maverick",
+          "Origin": "USA",
+          "Weight_in_lbs": 3012,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.6,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 22.5,
+          "Name": "amc hornet",
+          "Origin": "USA",
+          "Weight_in_lbs": 3085,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 22.2,
+          "Cylinders": 4,
+          "Displacement": 85,
+          "Horsepower": 52,
+          "Miles_per_Gallon": 29,
+          "Name": "chevrolet chevette",
+          "Origin": "USA",
+          "Weight_in_lbs": 2035,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 22.1,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 60,
+          "Miles_per_Gallon": 24.5,
+          "Name": "chevrolet woody",
+          "Origin": "USA",
+          "Weight_in_lbs": 2164,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.2,
+          "Cylinders": 4,
+          "Displacement": 90,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 29,
+          "Name": "vw rabbit",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1937,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.4,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 53,
+          "Miles_per_Gallon": 33,
+          "Name": "honda civic",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1795,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.7,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 20,
+          "Name": "dodge aspen se",
+          "Origin": "USA",
+          "Weight_in_lbs": 3651,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 78,
+          "Miles_per_Gallon": 18,
+          "Name": "ford granada ghia",
+          "Origin": "USA",
+          "Weight_in_lbs": 3574,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.2,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 18.5,
+          "Name": "pontiac ventura sj",
+          "Origin": "USA",
+          "Weight_in_lbs": 3645,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.8,
+          "Cylinders": 6,
+          "Displacement": 258,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 17.5,
+          "Name": "amc pacer d/l",
+          "Origin": "USA",
+          "Weight_in_lbs": 3193,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.2,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 71,
+          "Miles_per_Gallon": 29.5,
+          "Name": "volkswagen rabbit",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1825,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 85,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 32,
+          "Name": "datsun b-210",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1990,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 28,
+          "Name": "toyota corolla",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2155,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.6,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 72,
+          "Miles_per_Gallon": 26.5,
+          "Name": "ford pinto",
+          "Origin": "USA",
+          "Weight_in_lbs": 2565,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.7,
+          "Cylinders": 4,
+          "Displacement": 130,
+          "Horsepower": 102,
+          "Miles_per_Gallon": 20,
+          "Name": "volvo 245",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3150,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.2,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 13,
+          "Name": "plymouth volare premier v8",
+          "Origin": "USA",
+          "Weight_in_lbs": 3940,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21.9,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 19,
+          "Name": "peugeot 504",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3270,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 6,
+          "Displacement": 156,
+          "Horsepower": 108,
+          "Miles_per_Gallon": 19,
+          "Name": "toyota mark ii",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2930,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.7,
+          "Cylinders": 6,
+          "Displacement": 168,
+          "Horsepower": 120,
+          "Miles_per_Gallon": 16.5,
+          "Name": "mercedes-benz 280s",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3820,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.1,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 180,
+          "Miles_per_Gallon": 16.5,
+          "Name": "cadillac seville",
+          "Origin": "USA",
+          "Weight_in_lbs": 4380,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 145,
+          "Miles_per_Gallon": 13,
+          "Name": "chevy c10",
+          "Origin": "USA",
+          "Weight_in_lbs": 4055,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 130,
+          "Miles_per_Gallon": 13,
+          "Name": "ford f108",
+          "Origin": "USA",
+          "Weight_in_lbs": 3870,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 13,
+          "Name": "dodge d100",
+          "Origin": "USA",
+          "Weight_in_lbs": 3755,
+          "Year": "1976-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.5,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 68,
+          "Miles_per_Gallon": 31.5,
+          "Name": "honda Accelerationord cvcc",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2045,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.8,
+          "Cylinders": 4,
+          "Displacement": 111,
+          "Horsepower": 80,
+          "Miles_per_Gallon": 30,
+          "Name": "buick opel isuzu deluxe",
+          "Origin": "USA",
+          "Weight_in_lbs": 2155,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.6,
+          "Cylinders": 4,
+          "Displacement": 79,
+          "Horsepower": 58,
+          "Miles_per_Gallon": 36,
+          "Name": "renault 5 gtl",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1825,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 122,
+          "Horsepower": 96,
+          "Miles_per_Gallon": 25.5,
+          "Name": "plymouth arrow gs",
+          "Origin": "USA",
+          "Weight_in_lbs": 2300,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.8,
+          "Cylinders": 4,
+          "Displacement": 85,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 33.5,
+          "Name": "datsun f-10 hatchback",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1945,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.5,
+          "Cylinders": 8,
+          "Displacement": 305,
+          "Horsepower": 145,
+          "Miles_per_Gallon": 17.5,
+          "Name": "chevrolet caprice classic",
+          "Origin": "USA",
+          "Weight_in_lbs": 3880,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 8,
+          "Displacement": 260,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 17,
+          "Name": "oldsmobile cutlass supreme",
+          "Origin": "USA",
+          "Weight_in_lbs": 4060,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.7,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 145,
+          "Miles_per_Gallon": 15.5,
+          "Name": "dodge monaco brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 4140,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.9,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 130,
+          "Miles_per_Gallon": 15,
+          "Name": "mercury cougar brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 4295,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 17.5,
+          "Name": "chevrolet concours",
+          "Origin": "USA",
+          "Weight_in_lbs": 3520,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.9,
+          "Cylinders": 6,
+          "Displacement": 231,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 20.5,
+          "Name": "buick skylark",
+          "Origin": "USA",
+          "Weight_in_lbs": 3425,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.7,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 19,
+          "Name": "plymouth volare custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 3630,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 6,
+          "Displacement": 250,
+          "Horsepower": 98,
+          "Miles_per_Gallon": 18.5,
+          "Name": "ford granada",
+          "Origin": "USA",
+          "Weight_in_lbs": 3525,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.1,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 180,
+          "Miles_per_Gallon": 16,
+          "Name": "pontiac grand prix lj",
+          "Origin": "USA",
+          "Weight_in_lbs": 4220,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.4,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 170,
+          "Miles_per_Gallon": 15.5,
+          "Name": "chevrolet monte carlo landau",
+          "Origin": "USA",
+          "Weight_in_lbs": 4165,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.2,
+          "Cylinders": 8,
+          "Displacement": 400,
+          "Horsepower": 190,
+          "Miles_per_Gallon": 15.5,
+          "Name": "chrysler cordoba",
+          "Origin": "USA",
+          "Weight_in_lbs": 4325,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 149,
+          "Miles_per_Gallon": 16,
+          "Name": "ford thunderbird",
+          "Origin": "USA",
+          "Weight_in_lbs": 4335,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 78,
+          "Miles_per_Gallon": 29,
+          "Name": "volkswagen rabbit custom",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1940,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 24.5,
+          "Name": "pontiac sunbird coupe",
+          "Origin": "USA",
+          "Weight_in_lbs": 2740,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.2,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 26,
+          "Name": "toyota corolla liftback",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2265,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.8,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 89,
+          "Miles_per_Gallon": 25.5,
+          "Name": "ford mustang ii 2+2",
+          "Origin": "USA",
+          "Weight_in_lbs": 2755,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 63,
+          "Miles_per_Gallon": 30.5,
+          "Name": "chevrolet chevette",
+          "Origin": "USA",
+          "Weight_in_lbs": 2051,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.9,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 83,
+          "Miles_per_Gallon": 33.5,
+          "Name": "dodge colt m/m",
+          "Origin": "USA",
+          "Weight_in_lbs": 2075,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 30,
+          "Name": "subaru dl",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1985,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.1,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 78,
+          "Miles_per_Gallon": 30.5,
+          "Name": "volkswagen dasher",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2190,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 6,
+          "Displacement": 146,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 22,
+          "Name": "datsun 810",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2815,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.8,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 21.5,
+          "Name": "bmw 320i",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2600,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.5,
+          "Cylinders": 3,
+          "Displacement": 80,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 21.5,
+          "Name": "mazda rx-4",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2720,
+          "Year": "1977-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21.5,
+          "Cylinders": 4,
+          "Displacement": 90,
+          "Horsepower": 48,
+          "Miles_per_Gallon": 43.1,
+          "Name": "volkswagen rabbit custom diesel",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1985,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.4,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 66,
+          "Miles_per_Gallon": 36.1,
+          "Name": "ford fiesta",
+          "Origin": "USA",
+          "Weight_in_lbs": 1800,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.4,
+          "Cylinders": 4,
+          "Displacement": 78,
+          "Horsepower": 52,
+          "Miles_per_Gallon": 32.8,
+          "Name": "mazda glc deluxe",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1985,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.6,
+          "Cylinders": 4,
+          "Displacement": 85,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 39.4,
+          "Name": "datsun b210 gx",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2070,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 60,
+          "Miles_per_Gallon": 36.1,
+          "Name": "honda civic cvcc",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1800,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 8,
+          "Displacement": 260,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 19.9,
+          "Name": "oldsmobile cutlass salon brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 3365,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.2,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 140,
+          "Miles_per_Gallon": 19.4,
+          "Name": "dodge diplomat",
+          "Origin": "USA",
+          "Weight_in_lbs": 3735,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.8,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 139,
+          "Miles_per_Gallon": 20.2,
+          "Name": "mercury monarch ghia",
+          "Origin": "USA",
+          "Weight_in_lbs": 3570,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.2,
+          "Cylinders": 6,
+          "Displacement": 231,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 19.2,
+          "Name": "pontiac phoenix lj",
+          "Origin": "USA",
+          "Weight_in_lbs": 3535,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.2,
+          "Cylinders": 6,
+          "Displacement": 200,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 20.5,
+          "Name": "chevrolet malibu",
+          "Origin": "USA",
+          "Weight_in_lbs": 3155,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.8,
+          "Cylinders": 6,
+          "Displacement": 200,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 20.2,
+          "Name": "ford fairmont (auto)",
+          "Origin": "USA",
+          "Weight_in_lbs": 2965,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.4,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 25.1,
+          "Name": "ford fairmont (man)",
+          "Origin": "USA",
+          "Weight_in_lbs": 2720,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.2,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 20.5,
+          "Name": "plymouth volare",
+          "Origin": "USA",
+          "Weight_in_lbs": 3430,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.2,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 19.4,
+          "Name": "amc concord",
+          "Origin": "USA",
+          "Weight_in_lbs": 3210,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.8,
+          "Cylinders": 6,
+          "Displacement": 231,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 20.6,
+          "Name": "buick century special",
+          "Origin": "USA",
+          "Weight_in_lbs": 3380,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.7,
+          "Cylinders": 6,
+          "Displacement": 200,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 20.8,
+          "Name": "mercury zephyr",
+          "Origin": "USA",
+          "Weight_in_lbs": 3070,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.7,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 18.6,
+          "Name": "dodge aspen",
+          "Origin": "USA",
+          "Weight_in_lbs": 3620,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.1,
+          "Cylinders": 6,
+          "Displacement": 258,
+          "Horsepower": 120,
+          "Miles_per_Gallon": 18.1,
+          "Name": "amc concord d/l",
+          "Origin": "USA",
+          "Weight_in_lbs": 3410,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.2,
+          "Cylinders": 8,
+          "Displacement": 305,
+          "Horsepower": 145,
+          "Miles_per_Gallon": 19.2,
+          "Name": "chevrolet monte carlo landau",
+          "Origin": "USA",
+          "Weight_in_lbs": 3425,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.4,
+          "Cylinders": 6,
+          "Displacement": 231,
+          "Horsepower": 165,
+          "Miles_per_Gallon": 17.7,
+          "Name": "buick regal sport coupe (turbo)",
+          "Origin": "USA",
+          "Weight_in_lbs": 3445,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.2,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 139,
+          "Miles_per_Gallon": 18.1,
+          "Name": "ford futura",
+          "Origin": "USA",
+          "Weight_in_lbs": 3205,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.7,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 140,
+          "Miles_per_Gallon": 17.5,
+          "Name": "dodge magnum xe",
+          "Origin": "USA",
+          "Weight_in_lbs": 4080,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 68,
+          "Miles_per_Gallon": 30,
+          "Name": "chevrolet chevette",
+          "Origin": "USA",
+          "Weight_in_lbs": 2155,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.2,
+          "Cylinders": 4,
+          "Displacement": 134,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 27.5,
+          "Name": "toyota corona",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2560,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.7,
+          "Cylinders": 4,
+          "Displacement": 119,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 27.2,
+          "Name": "datsun 510",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2300,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 105,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 30.9,
+          "Name": "dodge omni",
+          "Origin": "USA",
+          "Weight_in_lbs": 2230,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.8,
+          "Cylinders": 4,
+          "Displacement": 134,
+          "Horsepower": 95,
+          "Miles_per_Gallon": 21.1,
+          "Name": "toyota celica gt liftback",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2515,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.7,
+          "Cylinders": 4,
+          "Displacement": 156,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 23.2,
+          "Name": "plymouth sapporo",
+          "Origin": "USA",
+          "Weight_in_lbs": 2745,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.6,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 23.8,
+          "Name": "oldsmobile starfire sx",
+          "Origin": "USA",
+          "Weight_in_lbs": 2855,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.9,
+          "Cylinders": 4,
+          "Displacement": 119,
+          "Horsepower": 97,
+          "Miles_per_Gallon": 23.9,
+          "Name": "datsun 200-sx",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2405,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.9,
+          "Cylinders": 5,
+          "Displacement": 131,
+          "Horsepower": 103,
+          "Miles_per_Gallon": 20.3,
+          "Name": "audi 5000",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2830,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.6,
+          "Cylinders": 6,
+          "Displacement": 163,
+          "Horsepower": 125,
+          "Miles_per_Gallon": 17,
+          "Name": "volvo 264gl",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3140,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.7,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 115,
+          "Miles_per_Gallon": 21.6,
+          "Name": "saab 99gle",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2795,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.8,
+          "Cylinders": 6,
+          "Displacement": 163,
+          "Horsepower": 133,
+          "Miles_per_Gallon": 16.2,
+          "Name": "peugeot 604sl",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3410,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.9,
+          "Cylinders": 4,
+          "Displacement": 89,
+          "Horsepower": 71,
+          "Miles_per_Gallon": 31.5,
+          "Name": "volkswagen scirocco",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1990,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.6,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 68,
+          "Miles_per_Gallon": 29.5,
+          "Name": "honda Accelerationord lx",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2135,
+          "Year": "1978-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.4,
+          "Cylinders": 6,
+          "Displacement": 231,
+          "Horsepower": 115,
+          "Miles_per_Gallon": 21.5,
+          "Name": "pontiac lemans v6",
+          "Origin": "USA",
+          "Weight_in_lbs": 3245,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.2,
+          "Cylinders": 6,
+          "Displacement": 200,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 19.8,
+          "Name": "mercury zephyr 6",
+          "Origin": "USA",
+          "Weight_in_lbs": 2990,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.3,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 22.3,
+          "Name": "ford fairmont 4",
+          "Origin": "USA",
+          "Weight_in_lbs": 2890,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.2,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 20.2,
+          "Name": "amc concord dl 6",
+          "Origin": "USA",
+          "Weight_in_lbs": 3265,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.6,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 20.6,
+          "Name": "dodge aspen 6",
+          "Origin": "USA",
+          "Weight_in_lbs": 3360,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.4,
+          "Cylinders": 8,
+          "Displacement": 305,
+          "Horsepower": 130,
+          "Miles_per_Gallon": 17,
+          "Name": "chevrolet caprice classic",
+          "Origin": "USA",
+          "Weight_in_lbs": 3840,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.4,
+          "Cylinders": 8,
+          "Displacement": 302,
+          "Horsepower": 129,
+          "Miles_per_Gallon": 17.6,
+          "Name": "ford ltd landau",
+          "Origin": "USA",
+          "Weight_in_lbs": 3725,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.2,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 138,
+          "Miles_per_Gallon": 16.5,
+          "Name": "mercury grand marquis",
+          "Origin": "USA",
+          "Weight_in_lbs": 3955,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.2,
+          "Cylinders": 8,
+          "Displacement": 318,
+          "Horsepower": 135,
+          "Miles_per_Gallon": 18.2,
+          "Name": "dodge st. regis",
+          "Origin": "USA",
+          "Weight_in_lbs": 3830,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.9,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 155,
+          "Miles_per_Gallon": 16.9,
+          "Name": "buick estate wagon (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4360,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.3,
+          "Cylinders": 8,
+          "Displacement": 351,
+          "Horsepower": 142,
+          "Miles_per_Gallon": 15.5,
+          "Name": "ford country squire (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 4054,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 8,
+          "Displacement": 267,
+          "Horsepower": 125,
+          "Miles_per_Gallon": 19.2,
+          "Name": "chevrolet malibu classic (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 3605,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 8,
+          "Displacement": 360,
+          "Horsepower": 150,
+          "Miles_per_Gallon": 18.5,
+          "Name": "chrysler lebaron town @ country (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 3940,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14,
+          "Cylinders": 4,
+          "Displacement": 89,
+          "Horsepower": 71,
+          "Miles_per_Gallon": 31.9,
+          "Name": "vw rabbit custom",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1925,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.2,
+          "Cylinders": 4,
+          "Displacement": 86,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 34.1,
+          "Name": "maxda glc deluxe",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1975,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.4,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 80,
+          "Miles_per_Gallon": 35.7,
+          "Name": "dodge colt hatchback custom",
+          "Origin": "USA",
+          "Weight_in_lbs": 1915,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 80,
+          "Miles_per_Gallon": 27.4,
+          "Name": "amc spirit dl",
+          "Origin": "USA",
+          "Weight_in_lbs": 2670,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 20.1,
+          "Cylinders": 5,
+          "Displacement": 183,
+          "Horsepower": 77,
+          "Miles_per_Gallon": 25.4,
+          "Name": "mercedes benz 300d",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3530,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.4,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 125,
+          "Miles_per_Gallon": 23,
+          "Name": "cadillac eldorado",
+          "Origin": "USA",
+          "Weight_in_lbs": 3900,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 24.8,
+          "Cylinders": 4,
+          "Displacement": 141,
+          "Horsepower": 71,
+          "Miles_per_Gallon": 27.2,
+          "Name": "peugeot 504",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3190,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 22.2,
+          "Cylinders": 8,
+          "Displacement": 260,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 23.9,
+          "Name": "oldsmobile cutlass salon brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 3420,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.2,
+          "Cylinders": 4,
+          "Displacement": 105,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 34.2,
+          "Name": "plymouth horizon",
+          "Origin": "USA",
+          "Weight_in_lbs": 2200,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.9,
+          "Cylinders": 4,
+          "Displacement": 105,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 34.5,
+          "Name": "plymouth horizon tc3",
+          "Origin": "USA",
+          "Weight_in_lbs": 2150,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.2,
+          "Cylinders": 4,
+          "Displacement": 85,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 31.8,
+          "Name": "datsun 210",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2020,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.7,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 69,
+          "Miles_per_Gallon": 37.3,
+          "Name": "fiat strada custom",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2130,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 28.4,
+          "Name": "buick skylark limited",
+          "Origin": "USA",
+          "Weight_in_lbs": 2670,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.3,
+          "Cylinders": 6,
+          "Displacement": 173,
+          "Horsepower": 115,
+          "Miles_per_Gallon": 28.8,
+          "Name": "chevrolet citation",
+          "Origin": "USA",
+          "Weight_in_lbs": 2595,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.9,
+          "Cylinders": 6,
+          "Displacement": 173,
+          "Horsepower": 115,
+          "Miles_per_Gallon": 26.8,
+          "Name": "oldsmobile omega brougham",
+          "Origin": "USA",
+          "Weight_in_lbs": 2700,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.2,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 33.5,
+          "Name": "pontiac phoenix",
+          "Origin": "USA",
+          "Weight_in_lbs": 2556,
+          "Year": "1979-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.7,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 76,
+          "Miles_per_Gallon": 41.5,
+          "Name": "vw rabbit",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2144,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.8,
+          "Cylinders": 4,
+          "Displacement": 89,
+          "Horsepower": 60,
+          "Miles_per_Gallon": 38.1,
+          "Name": "toyota corolla tercel",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1968,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 32.1,
+          "Name": "chevrolet chevette",
+          "Origin": "USA",
+          "Weight_in_lbs": 2120,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 4,
+          "Displacement": 86,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 37.2,
+          "Name": "datsun 310",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2019,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.5,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 28,
+          "Name": "chevrolet citation",
+          "Origin": "USA",
+          "Weight_in_lbs": 2678,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.1,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 26.4,
+          "Name": "ford fairmont",
+          "Origin": "USA",
+          "Weight_in_lbs": 2870,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 20.1,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 24.3,
+          "Name": "amc concord",
+          "Origin": "USA",
+          "Weight_in_lbs": 3003,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.7,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 19.1,
+          "Name": "dodge aspen",
+          "Origin": "USA",
+          "Weight_in_lbs": 3381,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.8,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 78,
+          "Miles_per_Gallon": 34.3,
+          "Name": "audi 4000",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2188,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.5,
+          "Cylinders": 4,
+          "Displacement": 134,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 29.8,
+          "Name": "toyota corona liftback",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2711,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.5,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 31.3,
+          "Name": "mazda 626",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2542,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 4,
+          "Displacement": 119,
+          "Horsepower": 92,
+          "Miles_per_Gallon": 37,
+          "Name": "datsun 510 hatchback",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2434,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.2,
+          "Cylinders": 4,
+          "Displacement": 108,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 32.2,
+          "Name": "toyota corolla",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2265,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.9,
+          "Cylinders": 4,
+          "Displacement": 86,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 46.6,
+          "Name": "mazda glc",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2110,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.4,
+          "Cylinders": 4,
+          "Displacement": 156,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 27.9,
+          "Name": "dodge colt",
+          "Origin": "USA",
+          "Weight_in_lbs": 2800,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.2,
+          "Cylinders": 4,
+          "Displacement": 85,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 40.8,
+          "Name": "datsun 210",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2110,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21.7,
+          "Cylinders": 4,
+          "Displacement": 90,
+          "Horsepower": 48,
+          "Miles_per_Gallon": 44.3,
+          "Name": "vw rabbit c (diesel)",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2085,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 23.7,
+          "Cylinders": 4,
+          "Displacement": 90,
+          "Horsepower": 48,
+          "Miles_per_Gallon": 43.4,
+          "Name": "vw dasher (diesel)",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2335,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.9,
+          "Cylinders": 5,
+          "Displacement": 121,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 36.4,
+          "Name": "audi 5000s (diesel)",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2950,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 21.8,
+          "Cylinders": 4,
+          "Displacement": 146,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 30,
+          "Name": "mercedes-benz 240d",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3250,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.8,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 44.6,
+          "Name": "honda civic 1500 gl",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1850,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.3,
+          "Cylinders": 4,
+          "Displacement": 85,
+          "Horsepower": null,
+          "Miles_per_Gallon": 40.9,
+          "Name": "renault lecar deluxe",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1835,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 33.8,
+          "Name": "subaru dl",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2145,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.3,
+          "Cylinders": 4,
+          "Displacement": 89,
+          "Horsepower": 62,
+          "Miles_per_Gallon": 29.8,
+          "Name": "vokswagen rabbit",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1845,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.4,
+          "Cylinders": 6,
+          "Displacement": 168,
+          "Horsepower": 132,
+          "Miles_per_Gallon": 32.7,
+          "Name": "datsun 280-zx",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2910,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.5,
+          "Cylinders": 3,
+          "Displacement": 70,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 23.7,
+          "Name": "mazda rx-7 gs",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2420,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.1,
+          "Cylinders": 4,
+          "Displacement": 122,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 35,
+          "Name": "triumph tr7 coupe",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2500,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.3,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": null,
+          "Miles_per_Gallon": 23.6,
+          "Name": "ford mustang cobra",
+          "Origin": "USA",
+          "Weight_in_lbs": 2905,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 4,
+          "Displacement": 107,
+          "Horsepower": 72,
+          "Miles_per_Gallon": 32.4,
+          "Name": "honda Accelerationord",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2290,
+          "Year": "1980-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.7,
+          "Cylinders": 4,
+          "Displacement": 135,
+          "Horsepower": 84,
+          "Miles_per_Gallon": 27.2,
+          "Name": "plymouth reliant",
+          "Origin": "USA",
+          "Weight_in_lbs": 2490,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 84,
+          "Miles_per_Gallon": 26.6,
+          "Name": "buick skylark",
+          "Origin": "USA",
+          "Weight_in_lbs": 2635,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.4,
+          "Cylinders": 4,
+          "Displacement": 156,
+          "Horsepower": 92,
+          "Miles_per_Gallon": 25.8,
+          "Name": "dodge aries wagon (sw)",
+          "Origin": "USA",
+          "Weight_in_lbs": 2620,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.6,
+          "Cylinders": 6,
+          "Displacement": 173,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 23.5,
+          "Name": "chevrolet citation",
+          "Origin": "USA",
+          "Weight_in_lbs": 2725,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.9,
+          "Cylinders": 4,
+          "Displacement": 135,
+          "Horsepower": 84,
+          "Miles_per_Gallon": 30,
+          "Name": "plymouth reliant",
+          "Origin": "USA",
+          "Weight_in_lbs": 2385,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.9,
+          "Cylinders": 4,
+          "Displacement": 79,
+          "Horsepower": 58,
+          "Miles_per_Gallon": 39.1,
+          "Name": "toyota starlet",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1755,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 4,
+          "Displacement": 86,
+          "Horsepower": 64,
+          "Miles_per_Gallon": 39,
+          "Name": "plymouth champ",
+          "Origin": "USA",
+          "Weight_in_lbs": 1875,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.1,
+          "Cylinders": 4,
+          "Displacement": 81,
+          "Horsepower": 60,
+          "Miles_per_Gallon": 35.1,
+          "Name": "honda civic 1300",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1760,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.8,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 32.3,
+          "Name": "subaru",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2065,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.4,
+          "Cylinders": 4,
+          "Displacement": 85,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 37,
+          "Name": "datsun 210",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1975,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.3,
+          "Cylinders": 4,
+          "Displacement": 89,
+          "Horsepower": 62,
+          "Miles_per_Gallon": 37.7,
+          "Name": "toyota tercel",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2050,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 68,
+          "Miles_per_Gallon": 34.1,
+          "Name": "mazda glc 4",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1985,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.9,
+          "Cylinders": 4,
+          "Displacement": 105,
+          "Horsepower": 63,
+          "Miles_per_Gallon": 34.7,
+          "Name": "plymouth horizon 4",
+          "Origin": "USA",
+          "Weight_in_lbs": 2215,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.2,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 34.4,
+          "Name": "ford escort 4w",
+          "Origin": "USA",
+          "Weight_in_lbs": 2045,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 20.7,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 65,
+          "Miles_per_Gallon": 29.9,
+          "Name": "ford escort 2h",
+          "Origin": "USA",
+          "Weight_in_lbs": 2380,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.2,
+          "Cylinders": 4,
+          "Displacement": 105,
+          "Horsepower": 74,
+          "Miles_per_Gallon": 33,
+          "Name": "volkswagen jetta",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2190,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.8,
+          "Cylinders": 4,
+          "Displacement": 100,
+          "Horsepower": null,
+          "Miles_per_Gallon": 34.5,
+          "Name": "renault 18i",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2320,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.4,
+          "Cylinders": 4,
+          "Displacement": 107,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 33.7,
+          "Name": "honda prelude",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2210,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.8,
+          "Cylinders": 4,
+          "Displacement": 108,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 32.4,
+          "Name": "toyota corolla",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2350,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.8,
+          "Cylinders": 4,
+          "Displacement": 119,
+          "Horsepower": 100,
+          "Miles_per_Gallon": 32.9,
+          "Name": "datsun 200sx",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2615,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.3,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 74,
+          "Miles_per_Gallon": 31.6,
+          "Name": "mazda 626",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2635,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 20.4,
+          "Cylinders": 4,
+          "Displacement": 141,
+          "Horsepower": 80,
+          "Miles_per_Gallon": 28.1,
+          "Name": "peugeot 505s turbo diesel",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3230,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.4,
+          "Cylinders": 4,
+          "Displacement": 121,
+          "Horsepower": 110,
+          "Miles_per_Gallon": null,
+          "Name": "saab 900s",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2800,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.6,
+          "Cylinders": 6,
+          "Displacement": 145,
+          "Horsepower": 76,
+          "Miles_per_Gallon": 30.7,
+          "Name": "volvo diesel",
+          "Origin": "Europe",
+          "Weight_in_lbs": 3160,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 12.6,
+          "Cylinders": 6,
+          "Displacement": 168,
+          "Horsepower": 116,
+          "Miles_per_Gallon": 25.4,
+          "Name": "toyota cressida",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2900,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.8,
+          "Cylinders": 6,
+          "Displacement": 146,
+          "Horsepower": 120,
+          "Miles_per_Gallon": 24.2,
+          "Name": "datsun 810 maxima",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2930,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.8,
+          "Cylinders": 6,
+          "Displacement": 231,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 22.4,
+          "Name": "buick century",
+          "Origin": "USA",
+          "Weight_in_lbs": 3415,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19,
+          "Cylinders": 8,
+          "Displacement": 350,
+          "Horsepower": 105,
+          "Miles_per_Gallon": 26.6,
+          "Name": "oldsmobile cutlass ls",
+          "Origin": "USA",
+          "Weight_in_lbs": 3725,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.1,
+          "Cylinders": 6,
+          "Displacement": 200,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 20.2,
+          "Name": "ford granada gl",
+          "Origin": "USA",
+          "Weight_in_lbs": 3060,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.6,
+          "Cylinders": 6,
+          "Displacement": 225,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 17.6,
+          "Name": "chrysler lebaron salon",
+          "Origin": "USA",
+          "Weight_in_lbs": 3465,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.6,
+          "Cylinders": 4,
+          "Displacement": 112,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 28,
+          "Name": "chevrolet cavalier",
+          "Origin": "USA",
+          "Weight_in_lbs": 2605,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.6,
+          "Cylinders": 4,
+          "Displacement": 112,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 27,
+          "Name": "chevrolet cavalier wagon",
+          "Origin": "USA",
+          "Weight_in_lbs": 2640,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18,
+          "Cylinders": 4,
+          "Displacement": 112,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 34,
+          "Name": "chevrolet cavalier 2-door",
+          "Origin": "USA",
+          "Weight_in_lbs": 2395,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.2,
+          "Cylinders": 4,
+          "Displacement": 112,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 31,
+          "Name": "pontiac j2000 se hatchback",
+          "Origin": "USA",
+          "Weight_in_lbs": 2575,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16,
+          "Cylinders": 4,
+          "Displacement": 135,
+          "Horsepower": 84,
+          "Miles_per_Gallon": 29,
+          "Name": "dodge aries se",
+          "Origin": "USA",
+          "Weight_in_lbs": 2525,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 27,
+          "Name": "pontiac phoenix",
+          "Origin": "USA",
+          "Weight_in_lbs": 2735,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 92,
+          "Miles_per_Gallon": 24,
+          "Name": "ford fairmont futura",
+          "Origin": "USA",
+          "Weight_in_lbs": 2865,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 20.5,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": null,
+          "Miles_per_Gallon": 23,
+          "Name": "amc concord dl",
+          "Origin": "USA",
+          "Weight_in_lbs": 3035,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.3,
+          "Cylinders": 4,
+          "Displacement": 105,
+          "Horsepower": 74,
+          "Miles_per_Gallon": 36,
+          "Name": "volkswagen rabbit l",
+          "Origin": "Europe",
+          "Weight_in_lbs": 1980,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.2,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 68,
+          "Miles_per_Gallon": 37,
+          "Name": "mazda glc custom l",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2025,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.6,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 68,
+          "Miles_per_Gallon": 31,
+          "Name": "mazda glc custom",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1970,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.7,
+          "Cylinders": 4,
+          "Displacement": 105,
+          "Horsepower": 63,
+          "Miles_per_Gallon": 38,
+          "Name": "plymouth horizon miser",
+          "Origin": "USA",
+          "Weight_in_lbs": 2125,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.3,
+          "Cylinders": 4,
+          "Displacement": 98,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 36,
+          "Name": "mercury lynx l",
+          "Origin": "USA",
+          "Weight_in_lbs": 2125,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 88,
+          "Miles_per_Gallon": 36,
+          "Name": "nissan stanza xe",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2160,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 107,
+          "Horsepower": 75,
+          "Miles_per_Gallon": 36,
+          "Name": "honda Accelerationord",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2205,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.9,
+          "Cylinders": 4,
+          "Displacement": 108,
+          "Horsepower": 70,
+          "Miles_per_Gallon": 34,
+          "Name": "toyota corolla",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2245,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 38,
+          "Name": "honda civic",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1965,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.7,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 32,
+          "Name": "honda civic (auto)",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1965,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.2,
+          "Cylinders": 4,
+          "Displacement": 91,
+          "Horsepower": 67,
+          "Miles_per_Gallon": 38,
+          "Name": "datsun 310 gx",
+          "Origin": "Japan",
+          "Weight_in_lbs": 1995,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 16.4,
+          "Cylinders": 6,
+          "Displacement": 181,
+          "Horsepower": 110,
+          "Miles_per_Gallon": 25,
+          "Name": "buick century limited",
+          "Origin": "USA",
+          "Weight_in_lbs": 2945,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17,
+          "Cylinders": 6,
+          "Displacement": 262,
+          "Horsepower": 85,
+          "Miles_per_Gallon": 38,
+          "Name": "oldsmobile cutlass ciera (diesel)",
+          "Origin": "USA",
+          "Weight_in_lbs": 3015,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.5,
+          "Cylinders": 4,
+          "Displacement": 156,
+          "Horsepower": 92,
+          "Miles_per_Gallon": 26,
+          "Name": "chrysler lebaron medallion",
+          "Origin": "USA",
+          "Weight_in_lbs": 2585,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 14.7,
+          "Cylinders": 6,
+          "Displacement": 232,
+          "Horsepower": 112,
+          "Miles_per_Gallon": 22,
+          "Name": "ford granada l",
+          "Origin": "USA",
+          "Weight_in_lbs": 2835,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13.9,
+          "Cylinders": 4,
+          "Displacement": 144,
+          "Horsepower": 96,
+          "Miles_per_Gallon": 32,
+          "Name": "toyota celica gt",
+          "Origin": "Japan",
+          "Weight_in_lbs": 2665,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 13,
+          "Cylinders": 4,
+          "Displacement": 135,
+          "Horsepower": 84,
+          "Miles_per_Gallon": 36,
+          "Name": "dodge charger 2.2",
+          "Origin": "USA",
+          "Weight_in_lbs": 2370,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 17.3,
+          "Cylinders": 4,
+          "Displacement": 151,
+          "Horsepower": 90,
+          "Miles_per_Gallon": 27,
+          "Name": "chevrolet camaro",
+          "Origin": "USA",
+          "Weight_in_lbs": 2950,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 15.6,
+          "Cylinders": 4,
+          "Displacement": 140,
+          "Horsepower": 86,
+          "Miles_per_Gallon": 27,
+          "Name": "ford mustang gl",
+          "Origin": "USA",
+          "Weight_in_lbs": 2790,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 24.6,
+          "Cylinders": 4,
+          "Displacement": 97,
+          "Horsepower": 52,
+          "Miles_per_Gallon": 44,
+          "Name": "vw pickup",
+          "Origin": "Europe",
+          "Weight_in_lbs": 2130,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 11.6,
+          "Cylinders": 4,
+          "Displacement": 135,
+          "Horsepower": 84,
+          "Miles_per_Gallon": 32,
+          "Name": "dodge rampage",
+          "Origin": "USA",
+          "Weight_in_lbs": 2295,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 18.6,
+          "Cylinders": 4,
+          "Displacement": 120,
+          "Horsepower": 79,
+          "Miles_per_Gallon": 28,
+          "Name": "ford ranger",
+          "Origin": "USA",
+          "Weight_in_lbs": 2625,
+          "Year": "1982-01-01T00:00:00"
+        },
+        {
+          "Acceleration": 19.4,
+          "Cylinders": 4,
+          "Displacement": 119,
+          "Horsepower": 82,
+          "Miles_per_Gallon": 31,
+          "Name": "chevy s-10",
+          "Origin": "USA",
+          "Weight_in_lbs": 2720,
+          "Year": "1982-01-01T00:00:00"
+        }
+      ]
+    },
+    "encoding": {
+      "color": {
+        "field": "Origin",
+        "type": "nominal"
+      },
+      "x": {
+        "field": "Horsepower",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "Miles_per_Gallon",
+        "type": "quantitative"
+      }
+    },
+    "mark": "point",
+    "selection": {
+      "selector001": {
+        "bind": "scales",
+        "encodings": [
+          "x",
+          "y"
+        ],
+        "type": "interval"
+      }
+    }
+  },
+  "embed_options": {
+    "defaultStyle": true,
+    "renderer": "canvas"
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>Here’s another example showing some of the data-transformation capabilities of Vega-Lite:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+source &lt;- 
+  data.frame(
+    Activity = c(&quot;Sleeping&quot;, &quot;Eating&quot;, &quot;TV&quot;, &quot;Work&quot;, &quot;Exercise&quot;),
+    Time = c(8, 2, 4, 8, 2)
+  )
+
+alt$Chart(source)$
+  transform_joinaggregate(TotalTime = &quot;sum(Time)&quot;)$
+  transform_calculate(ProportionOfTotal = &quot;datum.Time / datum.TotalTime&quot;)$
+  mark_bar()$
+  encode(
+    x = alt$X(&quot;ProportionOfTotal:Q&quot;, axis = alt$Axis(format = &quot;.0%&quot;)),
+    y = alt$Y(
+      &quot;Activity:N&quot;, 
+      sort = alt$Sort(field = &quot;ProportionOfTotal&quot;, order = &quot;descending&quot;)
+    )
+ )</code></pre>
+<div id="htmlwidget-cb87cc4b4414c300a8e6" style="width:auto;height:auto;" class="vegawidget html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cb87cc4b4414c300a8e6">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v3.3.0.json",
+    "config": {
+      "mark": {
+        "tooltip": null
+      },
+      "view": {
+        "height": 300,
+        "width": 400
+      }
+    },
+    "data": {
+      "name": "data-fc14a2a736a4949c57d10dc680e28a76"
+    },
+    "datasets": {
+      "data-fc14a2a736a4949c57d10dc680e28a76": [
+        {
+          "Activity": "Sleeping",
+          "Time": 8
+        },
+        {
+          "Activity": "Eating",
+          "Time": 2
+        },
+        {
+          "Activity": "TV",
+          "Time": 4
+        },
+        {
+          "Activity": "Work",
+          "Time": 8
+        },
+        {
+          "Activity": "Exercise",
+          "Time": 2
+        }
+      ]
+    },
+    "encoding": {
+      "x": {
+        "axis": {
+          "format": ".0%"
+        },
+        "field": "ProportionOfTotal",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "Activity",
+        "sort": {
+          "field": "ProportionOfTotal",
+          "order": "descending"
+        },
+        "type": "nominal"
+      }
+    },
+    "mark": "bar",
+    "transform": [
+      {
+        "joinaggregate": [
+          {
+            "as": "TotalTime",
+            "field": "Time",
+            "op": "sum"
+          }
+        ]
+      },
+      {
+        "as": "ProportionOfTotal",
+        "calculate": "datum.Time / datum.TotalTime"
+      }
+    ]
+  },
+  "embed_options": {
+    "defaultStyle": true,
+    "renderer": "canvas"
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>For more examples, please see our example gallery (<a href="https://vegawidget.github.io/altair/articles/example-gallery-01-simple.html">starting here</a>), where Haley Jeppson has reproduced the entire <a href="https://altair-viz.github.io/gallery/">Altair gallery</a>, demonstrating that whatever you can do in Python Altair, you can do also from R.</p>
+<p>In general, wherever you see the <code>.</code> used in Python syntax, use a <code>$</code> in R. Of course, to use altair, you will need to install Python. If you have Python installed already (we recommend Conda), you can use altair’s <code>install_altair()</code> function to install Altair.</p>
+<p>A few words about the development philosophy of this package: our goal is to provide a faithful representation of the Altair package; we do not want to introduce any opinions beyond those introduced by the Altair authors. In other words, we would want that Jake Vanderplas could use this package and feel as much as possible “at home”. As such, we introduce very few functions of our own; these deal mainly with installation, view-composition, and rendering.</p>
+<p>The rendering functions themselves are re-exported from the <a href="https://vegawidget.github.io/vegawidget"><strong>vewgawidget</strong></a> package, which offers additional functions to provide interactivity using Shiny. We offer an online <a href="https://ijlyttle.shinyapps.io/vegawidget-gapminder">example</a>, and an <a href="https://vegawidget.github.io/vegawidget/articles/articles/shiny.html">article</a>.</p>
+<p>Finally to acknowledge the support of collaborators, near and not-so-near:</p>
+<ul>
+<li><p><a href="https://github.com/aliciaschep">Alicia Schep</a>, for contributing the <a href="https://vegawidget.github.io/altair/articles/view-composition.html">view-composition functions</a> and her wise counsel.</p></li>
+<li><p><a href="https://github.com/jakevdp">Jake Vanderplas</a>, for his development of Altair and support of for this wrapping-package.</p></li>
+</ul>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Lyttle &amp; Jeppson (2019, July 17). vegawidget: altair 3.1.1 on CRAN. Retrieved from https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{lyttle2019altair,
+  author = {Lyttle, Ian and Jeppson, Haley},
+  title = {vegawidget: altair 3.1.1 on CRAN},
+  url = {https://vegawidget.rbind.io/posts/2019-07-16-altair-on-cran/},
+  year = {2019}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
